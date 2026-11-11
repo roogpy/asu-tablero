@@ -65,6 +65,60 @@ def test_to_utc_normalizes_offsets():
     assert asu.to_utc("2026-11-10T13:20:00Z") == "2026-11-10T13:20:00Z"
 
 
+def test_wall_clock_with_a_fake_utc_offset_is_read_in_the_airport_zone():
+    """The API sends local time tagged "+00:00"; the zone field is the truth.
+
+    Real record for LA1325 on 2026-11-11, cross-checked against the published
+    schedule: 15:20 in Santiago, 17:58 in Asuncion, 2h38m in the air.
+    """
+    departure = asu.to_utc("2026-11-11T15:20:00+00:00", "America/Santiago")
+    arrival = asu.to_utc("2026-11-11T17:58:00+00:00", "America/Asuncion")
+    assert departure == "2026-11-11T18:20:00Z"
+    assert arrival == "2026-11-11T20:58:00Z"
+
+    flown = datetime.fromisoformat(arrival.replace("Z", "+00:00")) - datetime.fromisoformat(
+        departure.replace("Z", "+00:00")
+    )
+    assert flown.total_seconds() == (2 * 60 + 38) * 60
+
+
+def test_a_real_offset_is_trusted_as_it_comes():
+    assert asu.to_utc("2026-11-10T10:20:00-03:00", "America/Asuncion") == "2026-11-10T13:20:00Z"
+    assert asu.to_utc("2026-11-10T11:50:00+01:00", "Europe/Paris") == "2026-11-10T10:50:00Z"
+
+
+def test_zone_falls_back_without_the_tz_database():
+    assert asu.zone(None) is None
+    assert asu.zone("Not/AZone") is None
+    assert asu.to_utc("2026-11-11T17:58:00+00:00", "Not/AZone") == "2026-11-11T17:58:00Z"
+
+
+def test_the_whole_record_lands_in_utc_from_the_airport_zones():
+    raw = {
+        "flight_date": "2026-11-11",
+        "flight_status": "scheduled",
+        "departure": {
+            "airport": "Arturo Merino Benitez",
+            "timezone": "America/Santiago",
+            "iata": "SCL",
+            "scheduled": "2026-11-11T15:20:00+00:00",
+            "delay": 10,
+        },
+        "arrival": {
+            "airport": "Silvio Pettirossi",
+            "timezone": "America/Asuncion",
+            "iata": "ASU",
+            "scheduled": "2026-11-11T17:58:00+00:00",
+        },
+        "airline": {"name": "LATAM Airlines", "iata": "LA"},
+        "flight": {"number": "1325", "iata": "LA1325", "codeshared": None},
+    }
+    record = asu.normalize_flight(raw, "arrival")
+    assert record["scheduled_utc"] == "2026-11-11T20:58:00Z"
+    assert record["other"]["scheduled_utc"] == "2026-11-11T18:20:00Z"
+    assert record["local_date"] == "2026-11-11"
+
+
 def test_to_utc_rejects_junk():
     assert asu.to_utc(None) is None
     assert asu.to_utc("") is None
@@ -368,6 +422,13 @@ def test_from_raw_builds_day_and_index_without_requests(offline_tree):
 def test_from_raw_reports_a_missing_raw_file(offline_tree, capsys):
     assert collect.main(["--from-raw", "--date", "2026-11-09"]) == 1
     assert "missing raw file" in capsys.readouterr().err
+
+
+def test_rebuilding_keeps_the_original_collection_time(offline_tree):
+    collect.main(["--from-raw", "--date", "2026-11-10", "--collected-at", "2026-11-11T02:30:00Z"])
+    assert asu.read_json(offline_tree / "2026-11-10.json")["collected_at"] == "2026-11-11T02:30:00Z"
+    collect.main(["--from-raw", "--date", "2026-11-10"])
+    assert asu.read_json(offline_tree / "2026-11-10.json")["collected_at"] == "2026-11-11T02:30:00Z"
 
 
 def test_index_only_rebuilds_the_index(offline_tree):

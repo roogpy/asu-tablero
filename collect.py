@@ -171,6 +171,11 @@ def main(argv=None) -> int:
     parser.add_argument(
         "--index-only", action="store_true", help="rebuild data/index.json and exit"
     )
+    parser.add_argument(
+        "--collected-at",
+        help="UTC timestamp the data was taken (default: the value already in "
+        "the day file when rebuilding, otherwise now)",
+    )
     args = parser.parse_args(argv)
 
     now = datetime.now(timezone.utc)
@@ -181,9 +186,19 @@ def main(argv=None) -> int:
             write_index()
             return 0
 
+        collected_at = args.collected_at or asu.utc_now_iso(now)
+
         if args.from_raw:
             arrivals, departures = load_raw(args.raw_date or date)
             requests_sent = 0
+            if not args.collected_at:
+                # A rebuild must not claim the data was taken now: keep the
+                # moment the API was actually called.
+                previous = DATA_DIR / (date + ".json")
+                if previous.exists():
+                    collected_at = (
+                        asu.read_json(previous).get("collected_at") or collected_at
+                    )
         else:
             budget = asu.roll_budget(asu.load_budget(BUDGET_PATH), now)
             allowed, reason = asu.budget_allows(budget, len(DIRECTIONS))
@@ -207,7 +222,7 @@ def main(argv=None) -> int:
                     )
             arrivals, departures = payloads["arr"], payloads["dep"]
 
-        day = asu.build_day(arrivals, departures, date, asu.utc_now_iso(now))
+        day = asu.build_day(arrivals, departures, date, collected_at)
         asu.write_json(DATA_DIR / (date + ".json"), day)
         report(day)
         write_index()

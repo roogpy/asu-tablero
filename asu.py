@@ -38,14 +38,23 @@ DELAY_THRESHOLD_MINUTES = 15
 # --------------------------------------------------------------------------- #
 # time helpers
 # --------------------------------------------------------------------------- #
-def local_timezone():
-    """America/Asuncion when the tz database is available, else a fixed UTC-3."""
+def zone(name):
+    """ZoneInfo for an IANA name, or None when the tz database lacks it."""
+    if not name:
+        return None
     try:
         from zoneinfo import ZoneInfo
 
-        return ZoneInfo(AIRPORT["timezone"])
+        return ZoneInfo(str(name))
     except Exception:  # pragma: no cover - depends on the host tz database
-        return timezone(LOCAL_UTC_OFFSET)
+        if str(name) == AIRPORT["timezone"]:
+            return timezone(LOCAL_UTC_OFFSET)
+        return None
+
+
+def local_timezone():
+    """America/Asuncion when the tz database is available, else a fixed UTC-3."""
+    return zone(AIRPORT["timezone"]) or timezone(LOCAL_UTC_OFFSET)
 
 
 def local_date(now: datetime | None = None) -> str:
@@ -69,8 +78,15 @@ def local_date_of(utc_iso):
     return moment.astimezone(local_timezone()).date().isoformat()
 
 
-def to_utc(value):
-    """Normalize an AviationStack timestamp to an ISO string ending in Z."""
+def to_utc(value, tz_name=None):
+    """Normalize an AviationStack timestamp to an ISO string ending in Z.
+
+    The API sends the airport's own wall clock tagged with a meaningless
+    "+00:00": LA1325 arrives 17:58 in Asuncion and comes as
+    "2026-11-11T17:58:00+00:00". So a zero or absent offset means the time has
+    to be read in `tz_name`, the airport's IANA zone from the same block. A
+    non-zero offset is real and is trusted as it comes.
+    """
     if not value or not isinstance(value, str):
         return None
     text = value.strip()
@@ -82,10 +98,16 @@ def to_utc(value):
         moment = datetime.fromisoformat(text)
     except ValueError:
         return None
-    if moment.tzinfo is None:
-        # The API always sends an offset. Without one we cannot guess a shift,
-        # so the value is taken as UTC rather than invented.
-        moment = moment.replace(tzinfo=timezone.utc)
+
+    offset = moment.utcoffset()
+    if offset is None or offset == timedelta(0):
+        airport_zone = zone(tz_name)
+        if airport_zone is not None:
+            # Re-read the same wall clock in the airport's zone.
+            moment = moment.replace(tzinfo=airport_zone)
+        elif moment.tzinfo is None:
+            # No zone to go by: taken as UTC rather than invented.
+            moment = moment.replace(tzinfo=timezone.utc)
     return moment.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
 
 
@@ -137,6 +159,7 @@ def as_int(value):
 
 def endpoint(block: dict | None) -> dict:
     block = block or {}
+    tz_name = clean(block.get("timezone"))
     return {
         "airport": title(block.get("airport")),
         "iata": upper(block.get("iata")),
@@ -146,9 +169,9 @@ def endpoint(block: dict | None) -> dict:
         "gate": upper(block.get("gate")),
         "baggage": upper(block.get("baggage")),
         "delay_minutes": as_int(block.get("delay")),
-        "scheduled_utc": to_utc(block.get("scheduled")),
-        "estimated_utc": to_utc(block.get("estimated")),
-        "actual_utc": to_utc(block.get("actual")),
+        "scheduled_utc": to_utc(block.get("scheduled"), tz_name),
+        "estimated_utc": to_utc(block.get("estimated"), tz_name),
+        "actual_utc": to_utc(block.get("actual"), tz_name),
     }
 
 

@@ -149,6 +149,12 @@ Each flight keeps the ASU side under `asu` and the other airport under `other`:
 
 Rules that the tests pin down:
 
+- **The API sends local wall-clock time tagged `+00:00`.** That offset is not
+  real: the `timezone` field of the same block (`America/Asuncion`,
+  `America/Santiago`, …) says how to read it. LA1325 arrives at 17:58 in
+  Asuncion and comes as `"2026-11-11T17:58:00+00:00"`. Taking it literally
+  shifts the whole board by the airport's offset, so a zero or missing offset
+  is read in the airport's zone and a non-zero offset is trusted as it comes.
 - Times are stored in UTC and displayed in `America/Asuncion`.
 - `local_date` is the ASU calendar day of the operation, derived from the
   scheduled time in Asuncion, **not** from the UTC date: a flight at 21:35 on

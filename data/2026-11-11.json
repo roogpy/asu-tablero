@@ -9,7 +9,7 @@
     "country": "Paraguay",
     "timezone": "America/Asuncion"
   },
-  "collected_at": "2026-11-11T15:59:54Z",
+  "collected_at": "2026-11-11T15:55:57Z",
   "source": "aviationstack /v1/flights",
   "pagination": {
     "arrivals": {
@@ -26,43 +26,43 @@
     }
   },
   "outside_day": {
-    "arrivals": 15,
-    "departures": 20
+    "arrivals": 13,
+    "departures": 17
   },
   "summary": {
-    "arrivals": 16,
-    "departures": 12,
-    "total": 28,
+    "arrivals": 18,
+    "departures": 15,
+    "total": 33,
     "cancelled": 0,
     "delayed": 2,
     "by_status": {
       "arrivals": {
-        "active": 5,
-        "landed": 4,
+        "active": 6,
+        "landed": 5,
         "scheduled": 7
       },
       "departures": {
-        "active": 5,
-        "landed": 3,
+        "active": 6,
+        "landed": 5,
         "scheduled": 4
       },
       "all": {
-        "active": 10,
-        "landed": 7,
+        "active": 12,
+        "landed": 10,
         "scheduled": 11
       }
     },
     "airlines": [
       {
         "name": "LATAM Airlines",
-        "count": 12
-      },
-      {
-        "name": "Aerolineas Argentinas",
-        "count": 3
+        "count": 16
       },
       {
         "name": "Copa Airlines",
+        "count": 4
+      },
+      {
+        "name": "Aerolineas Argentinas",
         "count": 3
       },
       {
@@ -92,11 +92,11 @@
     ],
     "places": [
       {
-        "name": "AEP",
-        "count": 5
+        "name": "GRU",
+        "count": 9
       },
       {
-        "name": "GRU",
+        "name": "AEP",
         "count": 5
       },
       {
@@ -104,11 +104,11 @@
         "count": 4
       },
       {
-        "name": "BOG",
-        "count": 3
+        "name": "PTY",
+        "count": 4
       },
       {
-        "name": "PTY",
+        "name": "BOG",
         "count": 3
       },
       {
@@ -132,9 +132,105 @@
         "count": 1
       }
     ],
-    "codeshares_merged": 37
+    "codeshares_merged": 41
   },
   "arrivals": [
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "LA1302",
+        "icao": "LAN1302",
+        "number": "1302"
+      },
+      "airline": {
+        "name": "LATAM Airlines",
+        "iata": "LA",
+        "icao": "LAN"
+      },
+      "status": "landed",
+      "flight_date": "2026-11-10",
+      "local_date": "2026-11-11",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-11T04:15:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Aeroporto Internacional Guarulhos",
+        "iata": "GRU",
+        "icao": "SBGR",
+        "timezone": "America/Sao_Paulo",
+        "terminal": "3",
+        "gate": "318",
+        "baggage": null,
+        "delay_minutes": 22,
+        "scheduled_utc": "2026-11-11T02:05:00Z",
+        "estimated_utc": "2026-11-11T02:05:00Z",
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-11T04:15:00Z",
+      "estimated_utc": null,
+      "actual_utc": null,
+      "delay_minutes": null
+    },
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "PZ1302",
+        "icao": "LAP1302",
+        "number": "1302"
+      },
+      "airline": {
+        "name": "LATAM Airlines",
+        "iata": "PZ",
+        "icao": "LAP"
+      },
+      "status": "active",
+      "flight_date": "2026-11-10",
+      "local_date": "2026-11-11",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 3,
+        "scheduled_utc": "2026-11-11T04:15:00Z",
+        "estimated_utc": "2026-11-11T04:18:00Z",
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Aeroporto Internacional Guarulhos",
+        "iata": "GRU",
+        "icao": "SBGR",
+        "timezone": "America/Sao_Paulo",
+        "terminal": "3",
+        "gate": "318",
+        "baggage": null,
+        "delay_minutes": 21,
+        "scheduled_utc": "2026-11-11T02:05:00Z",
+        "estimated_utc": "2026-11-11T02:05:00Z",
+        "actual_utc": "2026-11-11T02:26:00Z"
+      },
+      "scheduled_utc": "2026-11-11T04:15:00Z",
+      "estimated_utc": "2026-11-11T04:18:00Z",
+      "actual_utc": null,
+      "delay_minutes": 3
+    },
     {
       "direction": "arrival",
       "flight": {
@@ -161,7 +257,7 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T05:10:00Z",
+        "scheduled_utc": "2026-11-11T08:10:00Z",
         "estimated_utc": null,
         "actual_utc": null
       },
@@ -174,11 +270,11 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-10T22:25:00Z",
-        "estimated_utc": "2026-11-10T22:25:00Z",
+        "scheduled_utc": "2026-11-11T03:25:00Z",
+        "estimated_utc": "2026-11-11T03:25:00Z",
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T05:10:00Z",
+      "scheduled_utc": "2026-11-11T08:10:00Z",
       "estimated_utc": null,
       "actual_utc": null,
       "delay_minutes": null
@@ -214,8 +310,8 @@
         "gate": "4",
         "baggage": null,
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T05:25:00Z",
-        "estimated_utc": "2026-11-11T05:21:00Z",
+        "scheduled_utc": "2026-11-11T08:25:00Z",
+        "estimated_utc": "2026-11-11T08:21:00Z",
         "actual_utc": null
       },
       "other": {
@@ -227,12 +323,12 @@
         "gate": "144",
         "baggage": null,
         "delay_minutes": 17,
-        "scheduled_utc": "2026-11-10T21:23:00Z",
-        "estimated_utc": "2026-11-10T21:23:00Z",
-        "actual_utc": "2026-11-10T21:40:00Z"
+        "scheduled_utc": "2026-11-11T02:23:00Z",
+        "estimated_utc": "2026-11-11T02:23:00Z",
+        "actual_utc": "2026-11-11T02:40:00Z"
       },
-      "scheduled_utc": "2026-11-11T05:25:00Z",
-      "estimated_utc": "2026-11-11T05:21:00Z",
+      "scheduled_utc": "2026-11-11T08:25:00Z",
+      "estimated_utc": "2026-11-11T08:21:00Z",
       "actual_utc": null,
       "delay_minutes": 0
     },
@@ -262,9 +358,9 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 1,
-        "scheduled_utc": "2026-11-11T05:55:00Z",
-        "estimated_utc": "2026-11-11T05:53:00Z",
-        "actual_utc": "2026-11-11T05:56:00Z"
+        "scheduled_utc": "2026-11-11T08:55:00Z",
+        "estimated_utc": "2026-11-11T08:53:00Z",
+        "actual_utc": "2026-11-11T08:56:00Z"
       },
       "other": {
         "airport": "El Nuevo Dorado International",
@@ -275,13 +371,13 @@
         "gate": "AB",
         "baggage": null,
         "delay_minutes": 39,
-        "scheduled_utc": "2026-11-10T22:35:00Z",
-        "estimated_utc": "2026-11-10T22:35:00Z",
-        "actual_utc": "2026-11-10T23:14:00Z"
+        "scheduled_utc": "2026-11-11T03:35:00Z",
+        "estimated_utc": "2026-11-11T03:35:00Z",
+        "actual_utc": "2026-11-11T04:14:00Z"
       },
-      "scheduled_utc": "2026-11-11T05:55:00Z",
-      "estimated_utc": "2026-11-11T05:53:00Z",
-      "actual_utc": "2026-11-11T05:56:00Z",
+      "scheduled_utc": "2026-11-11T08:55:00Z",
+      "estimated_utc": "2026-11-11T08:53:00Z",
+      "actual_utc": "2026-11-11T08:56:00Z",
       "delay_minutes": 1
     },
     {
@@ -310,7 +406,7 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T06:15:00Z",
+        "scheduled_utc": "2026-11-11T09:15:00Z",
         "estimated_utc": null,
         "actual_utc": null
       },
@@ -323,11 +419,11 @@
         "gate": "C15",
         "baggage": null,
         "delay_minutes": 23,
-        "scheduled_utc": "2026-11-11T00:30:00Z",
-        "estimated_utc": "2026-11-11T00:30:00Z",
+        "scheduled_utc": "2026-11-11T05:30:00Z",
+        "estimated_utc": "2026-11-11T05:30:00Z",
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T06:15:00Z",
+      "scheduled_utc": "2026-11-11T09:15:00Z",
       "estimated_utc": null,
       "actual_utc": null,
       "delay_minutes": null
@@ -361,9 +457,9 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T06:15:00Z",
-        "estimated_utc": "2026-11-11T06:08:00Z",
-        "actual_utc": "2026-11-11T06:09:00Z"
+        "scheduled_utc": "2026-11-11T09:15:00Z",
+        "estimated_utc": "2026-11-11T09:08:00Z",
+        "actual_utc": "2026-11-11T09:09:00Z"
       },
       "other": {
         "airport": "Jorge Chavez International",
@@ -374,13 +470,13 @@
         "gate": "C15",
         "baggage": null,
         "delay_minutes": 19,
-        "scheduled_utc": "2026-11-11T00:30:00Z",
-        "estimated_utc": "2026-11-11T00:30:00Z",
-        "actual_utc": "2026-11-11T00:49:00Z"
+        "scheduled_utc": "2026-11-11T05:30:00Z",
+        "estimated_utc": "2026-11-11T05:30:00Z",
+        "actual_utc": "2026-11-11T05:49:00Z"
       },
-      "scheduled_utc": "2026-11-11T06:15:00Z",
-      "estimated_utc": "2026-11-11T06:08:00Z",
-      "actual_utc": "2026-11-11T06:09:00Z",
+      "scheduled_utc": "2026-11-11T09:15:00Z",
+      "estimated_utc": "2026-11-11T09:08:00Z",
+      "actual_utc": "2026-11-11T09:09:00Z",
       "delay_minutes": 0
     },
     {
@@ -409,9 +505,9 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 20,
-        "scheduled_utc": "2026-11-11T07:30:00Z",
-        "estimated_utc": "2026-11-11T07:46:00Z",
-        "actual_utc": "2026-11-11T07:50:00Z"
+        "scheduled_utc": "2026-11-11T10:30:00Z",
+        "estimated_utc": "2026-11-11T10:46:00Z",
+        "actual_utc": "2026-11-11T10:50:00Z"
       },
       "other": {
         "airport": "Barajas",
@@ -422,13 +518,13 @@
         "gate": "B26",
         "baggage": null,
         "delay_minutes": 60,
-        "scheduled_utc": "2026-11-10T23:45:00Z",
-        "estimated_utc": "2026-11-10T23:45:00Z",
-        "actual_utc": "2026-11-11T00:45:00Z"
+        "scheduled_utc": "2026-11-10T22:45:00Z",
+        "estimated_utc": "2026-11-10T22:45:00Z",
+        "actual_utc": "2026-11-10T23:45:00Z"
       },
-      "scheduled_utc": "2026-11-11T07:30:00Z",
-      "estimated_utc": "2026-11-11T07:46:00Z",
-      "actual_utc": "2026-11-11T07:50:00Z",
+      "scheduled_utc": "2026-11-11T10:30:00Z",
+      "estimated_utc": "2026-11-11T10:46:00Z",
+      "actual_utc": "2026-11-11T10:50:00Z",
       "delay_minutes": 20
     },
     {
@@ -461,8 +557,8 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T08:35:00Z",
-        "estimated_utc": "2026-11-11T08:24:00Z",
+        "scheduled_utc": "2026-11-11T11:35:00Z",
+        "estimated_utc": "2026-11-11T11:24:00Z",
         "actual_utc": null
       },
       "other": {
@@ -474,12 +570,12 @@
         "gate": "17",
         "baggage": null,
         "delay_minutes": 12,
-        "scheduled_utc": "2026-11-11T06:40:00Z",
-        "estimated_utc": "2026-11-11T06:40:00Z",
-        "actual_utc": "2026-11-11T06:52:00Z"
+        "scheduled_utc": "2026-11-11T09:40:00Z",
+        "estimated_utc": "2026-11-11T09:40:00Z",
+        "actual_utc": "2026-11-11T09:52:00Z"
       },
-      "scheduled_utc": "2026-11-11T08:35:00Z",
-      "estimated_utc": "2026-11-11T08:24:00Z",
+      "scheduled_utc": "2026-11-11T11:35:00Z",
+      "estimated_utc": "2026-11-11T11:24:00Z",
       "actual_utc": null,
       "delay_minutes": 0
     },
@@ -509,7 +605,7 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T10:35:00Z",
+        "scheduled_utc": "2026-11-11T13:35:00Z",
         "estimated_utc": null,
         "actual_utc": null
       },
@@ -522,11 +618,11 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 22,
-        "scheduled_utc": "2026-11-11T08:25:00Z",
-        "estimated_utc": "2026-11-11T08:25:00Z",
+        "scheduled_utc": "2026-11-11T11:25:00Z",
+        "estimated_utc": "2026-11-11T11:25:00Z",
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T10:35:00Z",
+      "scheduled_utc": "2026-11-11T13:35:00Z",
       "estimated_utc": null,
       "actual_utc": null,
       "delay_minutes": null
@@ -560,9 +656,9 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T10:35:00Z",
-        "estimated_utc": "2026-11-11T10:21:00Z",
-        "actual_utc": "2026-11-11T10:21:00Z"
+        "scheduled_utc": "2026-11-11T13:35:00Z",
+        "estimated_utc": "2026-11-11T13:21:00Z",
+        "actual_utc": "2026-11-11T13:21:00Z"
       },
       "other": {
         "airport": "Aeroporto Internacional Guarulhos",
@@ -573,13 +669,13 @@
         "gate": "314",
         "baggage": null,
         "delay_minutes": 4,
-        "scheduled_utc": "2026-11-11T08:25:00Z",
-        "estimated_utc": "2026-11-11T08:25:00Z",
-        "actual_utc": "2026-11-11T08:29:00Z"
+        "scheduled_utc": "2026-11-11T11:25:00Z",
+        "estimated_utc": "2026-11-11T11:25:00Z",
+        "actual_utc": "2026-11-11T11:29:00Z"
       },
-      "scheduled_utc": "2026-11-11T10:35:00Z",
-      "estimated_utc": "2026-11-11T10:21:00Z",
-      "actual_utc": "2026-11-11T10:21:00Z",
+      "scheduled_utc": "2026-11-11T13:35:00Z",
+      "estimated_utc": "2026-11-11T13:21:00Z",
+      "actual_utc": "2026-11-11T13:21:00Z",
       "delay_minutes": 0
     },
     {
@@ -608,9 +704,9 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 24,
-        "scheduled_utc": "2026-11-11T11:15:00Z",
-        "estimated_utc": "2026-11-11T11:33:00Z",
-        "actual_utc": "2026-11-11T11:39:00Z"
+        "scheduled_utc": "2026-11-11T14:15:00Z",
+        "estimated_utc": "2026-11-11T14:33:00Z",
+        "actual_utc": "2026-11-11T14:39:00Z"
       },
       "other": {
         "airport": "Sao Jose Dos Campos",
@@ -621,13 +717,13 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 36,
-        "scheduled_utc": "2026-11-11T09:00:00Z",
-        "estimated_utc": "2026-11-11T09:00:00Z",
-        "actual_utc": "2026-11-11T09:36:00Z"
+        "scheduled_utc": "2026-11-11T12:00:00Z",
+        "estimated_utc": "2026-11-11T12:00:00Z",
+        "actual_utc": "2026-11-11T12:36:00Z"
       },
-      "scheduled_utc": "2026-11-11T11:15:00Z",
-      "estimated_utc": "2026-11-11T11:33:00Z",
-      "actual_utc": "2026-11-11T11:39:00Z",
+      "scheduled_utc": "2026-11-11T14:15:00Z",
+      "estimated_utc": "2026-11-11T14:33:00Z",
+      "actual_utc": "2026-11-11T14:39:00Z",
       "delay_minutes": 24
     },
     {
@@ -664,8 +760,8 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T12:30:00Z",
-        "estimated_utc": "2026-11-11T12:10:00Z",
+        "scheduled_utc": "2026-11-11T15:30:00Z",
+        "estimated_utc": "2026-11-11T15:10:00Z",
         "actual_utc": null
       },
       "other": {
@@ -677,12 +773,12 @@
         "gate": "266",
         "baggage": null,
         "delay_minutes": 5,
-        "scheduled_utc": "2026-11-11T10:15:00Z",
-        "estimated_utc": "2026-11-11T10:15:00Z",
-        "actual_utc": "2026-11-11T10:20:00Z"
+        "scheduled_utc": "2026-11-11T13:15:00Z",
+        "estimated_utc": "2026-11-11T13:15:00Z",
+        "actual_utc": "2026-11-11T13:20:00Z"
       },
-      "scheduled_utc": "2026-11-11T12:30:00Z",
-      "estimated_utc": "2026-11-11T12:10:00Z",
+      "scheduled_utc": "2026-11-11T15:30:00Z",
+      "estimated_utc": "2026-11-11T15:10:00Z",
       "actual_utc": null,
       "delay_minutes": 0
     },
@@ -712,7 +808,7 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T15:13:00Z",
+        "scheduled_utc": "2026-11-11T18:13:00Z",
         "estimated_utc": null,
         "actual_utc": null
       },
@@ -725,11 +821,11 @@
         "gate": "16",
         "baggage": null,
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T13:22:00Z",
-        "estimated_utc": "2026-11-11T13:22:00Z",
+        "scheduled_utc": "2026-11-11T16:22:00Z",
+        "estimated_utc": "2026-11-11T16:22:00Z",
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T15:13:00Z",
+      "scheduled_utc": "2026-11-11T18:13:00Z",
       "estimated_utc": null,
       "actual_utc": null,
       "delay_minutes": null
@@ -760,7 +856,7 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T17:58:00Z",
+        "scheduled_utc": "2026-11-11T20:58:00Z",
         "estimated_utc": null,
         "actual_utc": null
       },
@@ -773,11 +869,11 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 10,
-        "scheduled_utc": "2026-11-11T15:20:00Z",
-        "estimated_utc": "2026-11-11T15:20:00Z",
+        "scheduled_utc": "2026-11-11T18:20:00Z",
+        "estimated_utc": "2026-11-11T18:20:00Z",
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T17:58:00Z",
+      "scheduled_utc": "2026-11-11T20:58:00Z",
       "estimated_utc": null,
       "actual_utc": null,
       "delay_minutes": null
@@ -808,7 +904,7 @@
         "gate": "5",
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T20:15:00Z",
+        "scheduled_utc": "2026-11-11T23:15:00Z",
         "estimated_utc": null,
         "actual_utc": null
       },
@@ -821,11 +917,11 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T18:20:00Z",
-        "estimated_utc": "2026-11-11T18:20:00Z",
+        "scheduled_utc": "2026-11-11T21:20:00Z",
+        "estimated_utc": "2026-11-11T21:20:00Z",
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T20:15:00Z",
+      "scheduled_utc": "2026-11-11T23:15:00Z",
       "estimated_utc": null,
       "actual_utc": null,
       "delay_minutes": null
@@ -856,7 +952,7 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T23:45:00Z",
+        "scheduled_utc": "2026-11-12T02:45:00Z",
         "estimated_utc": null,
         "actual_utc": null
       },
@@ -869,11 +965,11 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T13:50:00Z",
-        "estimated_utc": "2026-11-11T13:50:00Z",
+        "scheduled_utc": "2026-11-11T18:50:00Z",
+        "estimated_utc": "2026-11-11T18:50:00Z",
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T23:45:00Z",
+      "scheduled_utc": "2026-11-12T02:45:00Z",
       "estimated_utc": null,
       "actual_utc": null,
       "delay_minutes": null
@@ -906,7 +1002,7 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T23:57:00Z",
+        "scheduled_utc": "2026-11-12T02:57:00Z",
         "estimated_utc": null,
         "actual_utc": null
       },
@@ -919,17 +1015,167 @@
         "gate": "203",
         "baggage": null,
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T15:55:00Z",
-        "estimated_utc": "2026-11-11T15:55:00Z",
+        "scheduled_utc": "2026-11-11T20:55:00Z",
+        "estimated_utc": "2026-11-11T20:55:00Z",
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T23:57:00Z",
+      "scheduled_utc": "2026-11-12T02:57:00Z",
       "estimated_utc": null,
       "actual_utc": null,
       "delay_minutes": null
     }
   ],
   "departures": [
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "CM206",
+        "icao": "CMP206",
+        "number": "206"
+      },
+      "airline": {
+        "name": "Copa Airlines",
+        "iata": "CM",
+        "icao": "CMP"
+      },
+      "status": "landed",
+      "flight_date": "2026-11-11",
+      "local_date": "2026-11-11",
+      "marketing": [
+        "AF4365"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": "4",
+        "baggage": null,
+        "delay_minutes": 7,
+        "scheduled_utc": "2026-11-11T04:47:00Z",
+        "estimated_utc": "2026-11-11T04:47:00Z",
+        "actual_utc": "2026-11-11T04:54:00Z"
+      },
+      "other": {
+        "airport": "Tocumen International",
+        "iata": "PTY",
+        "icao": "MPTO",
+        "timezone": "America/Panama",
+        "terminal": "2",
+        "gate": "225",
+        "baggage": null,
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-11T10:58:00Z",
+        "estimated_utc": "2026-11-11T10:31:00Z",
+        "actual_utc": "2026-11-11T10:30:00Z"
+      },
+      "scheduled_utc": "2026-11-11T04:47:00Z",
+      "estimated_utc": "2026-11-11T04:47:00Z",
+      "actual_utc": "2026-11-11T04:54:00Z",
+      "delay_minutes": 7
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "LA1303",
+        "icao": "LAN1303",
+        "number": "1303"
+      },
+      "airline": {
+        "name": "LATAM Airlines",
+        "iata": "LA",
+        "icao": "LAN"
+      },
+      "status": "active",
+      "flight_date": "2026-11-11",
+      "local_date": "2026-11-11",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": "1",
+        "gate": "1",
+        "baggage": null,
+        "delay_minutes": 13,
+        "scheduled_utc": "2026-11-11T05:45:00Z",
+        "estimated_utc": "2026-11-11T05:45:00Z",
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Aeroporto Internacional Guarulhos",
+        "iata": "GRU",
+        "icao": "SBGR",
+        "timezone": "America/Sao_Paulo",
+        "terminal": "3",
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-11T07:45:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-11T05:45:00Z",
+      "estimated_utc": "2026-11-11T05:45:00Z",
+      "actual_utc": null,
+      "delay_minutes": 13
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "PZ1303",
+        "icao": "LAP1303",
+        "number": "1303"
+      },
+      "airline": {
+        "name": "LATAM Airlines",
+        "iata": "PZ",
+        "icao": "LAP"
+      },
+      "status": "landed",
+      "flight_date": "2026-11-11",
+      "local_date": "2026-11-11",
+      "marketing": [
+        "IB6786",
+        "LH4717",
+        "LX9731"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": "1",
+        "gate": "1",
+        "baggage": null,
+        "delay_minutes": 7,
+        "scheduled_utc": "2026-11-11T05:45:00Z",
+        "estimated_utc": "2026-11-11T05:45:00Z",
+        "actual_utc": "2026-11-11T05:52:00Z"
+      },
+      "other": {
+        "airport": "Aeroporto Internacional Guarulhos",
+        "iata": "GRU",
+        "icao": "SBGR",
+        "timezone": "America/Sao_Paulo",
+        "terminal": "3",
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-11T07:45:00Z",
+        "estimated_utc": "2026-11-11T07:23:00Z",
+        "actual_utc": "2026-11-11T07:17:00Z"
+      },
+      "scheduled_utc": "2026-11-11T05:45:00Z",
+      "estimated_utc": "2026-11-11T05:45:00Z",
+      "actual_utc": "2026-11-11T05:52:00Z",
+      "delay_minutes": 7
+    },
     {
       "direction": "departure",
       "flight": {
@@ -961,9 +1207,9 @@
         "gate": "4",
         "baggage": null,
         "delay_minutes": 4,
-        "scheduled_utc": "2026-11-11T06:31:00Z",
-        "estimated_utc": "2026-11-11T06:31:00Z",
-        "actual_utc": "2026-11-11T06:35:00Z"
+        "scheduled_utc": "2026-11-11T09:31:00Z",
+        "estimated_utc": "2026-11-11T09:31:00Z",
+        "actual_utc": "2026-11-11T09:35:00Z"
       },
       "other": {
         "airport": "Tocumen International",
@@ -974,13 +1220,13 @@
         "gate": "143",
         "baggage": null,
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T10:45:00Z",
-        "estimated_utc": "2026-11-11T10:12:00Z",
-        "actual_utc": "2026-11-11T10:10:00Z"
+        "scheduled_utc": "2026-11-11T15:45:00Z",
+        "estimated_utc": "2026-11-11T15:12:00Z",
+        "actual_utc": "2026-11-11T15:10:00Z"
       },
-      "scheduled_utc": "2026-11-11T06:31:00Z",
-      "estimated_utc": "2026-11-11T06:31:00Z",
-      "actual_utc": "2026-11-11T06:35:00Z",
+      "scheduled_utc": "2026-11-11T09:31:00Z",
+      "estimated_utc": "2026-11-11T09:31:00Z",
+      "actual_utc": "2026-11-11T09:35:00Z",
       "delay_minutes": 4
     },
     {
@@ -1009,8 +1255,8 @@
         "gate": "1",
         "baggage": null,
         "delay_minutes": 13,
-        "scheduled_utc": "2026-11-11T08:00:00Z",
-        "estimated_utc": "2026-11-11T08:00:00Z",
+        "scheduled_utc": "2026-11-11T11:00:00Z",
+        "estimated_utc": "2026-11-11T11:00:00Z",
         "actual_utc": null
       },
       "other": {
@@ -1022,12 +1268,12 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T09:55:00Z",
+        "scheduled_utc": "2026-11-11T14:55:00Z",
         "estimated_utc": null,
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T08:00:00Z",
-      "estimated_utc": "2026-11-11T08:00:00Z",
+      "scheduled_utc": "2026-11-11T11:00:00Z",
+      "estimated_utc": "2026-11-11T11:00:00Z",
       "actual_utc": null,
       "delay_minutes": 13
     },
@@ -1060,9 +1306,9 @@
         "gate": "1",
         "baggage": null,
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T08:00:00Z",
-        "estimated_utc": "2026-11-11T08:00:00Z",
-        "actual_utc": "2026-11-11T07:59:00Z"
+        "scheduled_utc": "2026-11-11T11:00:00Z",
+        "estimated_utc": "2026-11-11T11:00:00Z",
+        "actual_utc": "2026-11-11T10:59:00Z"
       },
       "other": {
         "airport": "Jorge Chavez International",
@@ -1073,13 +1319,13 @@
         "gate": null,
         "baggage": "7",
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T09:55:00Z",
-        "estimated_utc": "2026-11-11T09:29:00Z",
-        "actual_utc": "2026-11-11T09:28:00Z"
+        "scheduled_utc": "2026-11-11T14:55:00Z",
+        "estimated_utc": "2026-11-11T14:29:00Z",
+        "actual_utc": "2026-11-11T14:28:00Z"
       },
-      "scheduled_utc": "2026-11-11T08:00:00Z",
-      "estimated_utc": "2026-11-11T08:00:00Z",
-      "actual_utc": "2026-11-11T07:59:00Z",
+      "scheduled_utc": "2026-11-11T11:00:00Z",
+      "estimated_utc": "2026-11-11T11:00:00Z",
+      "actual_utc": "2026-11-11T10:59:00Z",
       "delay_minutes": 0
     },
     {
@@ -1108,9 +1354,9 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 4,
-        "scheduled_utc": "2026-11-11T08:20:00Z",
-        "estimated_utc": "2026-11-11T08:20:00Z",
-        "actual_utc": "2026-11-11T08:24:00Z"
+        "scheduled_utc": "2026-11-11T11:20:00Z",
+        "estimated_utc": "2026-11-11T11:20:00Z",
+        "actual_utc": "2026-11-11T11:24:00Z"
       },
       "other": {
         "airport": "El Nuevo Dorado International",
@@ -1121,13 +1367,13 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T11:40:00Z",
-        "estimated_utc": "2026-11-11T11:17:00Z",
+        "scheduled_utc": "2026-11-11T16:40:00Z",
+        "estimated_utc": "2026-11-11T16:17:00Z",
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T08:20:00Z",
-      "estimated_utc": "2026-11-11T08:20:00Z",
-      "actual_utc": "2026-11-11T08:24:00Z",
+      "scheduled_utc": "2026-11-11T11:20:00Z",
+      "estimated_utc": "2026-11-11T11:20:00Z",
+      "actual_utc": "2026-11-11T11:24:00Z",
       "delay_minutes": 4
     },
     {
@@ -1162,9 +1408,9 @@
         "gate": "4",
         "baggage": null,
         "delay_minutes": 4,
-        "scheduled_utc": "2026-11-11T09:45:00Z",
-        "estimated_utc": "2026-11-11T09:45:00Z",
-        "actual_utc": "2026-11-11T09:49:00Z"
+        "scheduled_utc": "2026-11-11T12:45:00Z",
+        "estimated_utc": "2026-11-11T12:45:00Z",
+        "actual_utc": "2026-11-11T12:49:00Z"
       },
       "other": {
         "airport": "Aeroparque Jorge Newbery",
@@ -1175,13 +1421,13 @@
         "gate": null,
         "baggage": "1I",
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T11:40:00Z",
-        "estimated_utc": "2026-11-11T11:30:00Z",
-        "actual_utc": "2026-11-11T11:25:00Z"
+        "scheduled_utc": "2026-11-11T14:40:00Z",
+        "estimated_utc": "2026-11-11T14:30:00Z",
+        "actual_utc": "2026-11-11T14:25:00Z"
       },
-      "scheduled_utc": "2026-11-11T09:45:00Z",
-      "estimated_utc": "2026-11-11T09:45:00Z",
-      "actual_utc": "2026-11-11T09:49:00Z",
+      "scheduled_utc": "2026-11-11T12:45:00Z",
+      "estimated_utc": "2026-11-11T12:45:00Z",
+      "actual_utc": "2026-11-11T12:49:00Z",
       "delay_minutes": 4
     },
     {
@@ -1210,8 +1456,8 @@
         "gate": "1",
         "baggage": null,
         "delay_minutes": 10,
-        "scheduled_utc": "2026-11-11T11:30:00Z",
-        "estimated_utc": "2026-11-11T11:30:00Z",
+        "scheduled_utc": "2026-11-11T14:30:00Z",
+        "estimated_utc": "2026-11-11T14:30:00Z",
         "actual_utc": null
       },
       "other": {
@@ -1223,12 +1469,12 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T14:20:00Z",
+        "scheduled_utc": "2026-11-11T17:20:00Z",
         "estimated_utc": null,
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T11:30:00Z",
-      "estimated_utc": "2026-11-11T11:30:00Z",
+      "scheduled_utc": "2026-11-11T14:30:00Z",
+      "estimated_utc": "2026-11-11T14:30:00Z",
       "actual_utc": null,
       "delay_minutes": 10
     },
@@ -1258,9 +1504,9 @@
         "gate": "1",
         "baggage": null,
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T11:30:00Z",
-        "estimated_utc": "2026-11-11T11:30:00Z",
-        "actual_utc": "2026-11-11T11:29:00Z"
+        "scheduled_utc": "2026-11-11T14:30:00Z",
+        "estimated_utc": "2026-11-11T14:30:00Z",
+        "actual_utc": "2026-11-11T14:29:00Z"
       },
       "other": {
         "airport": "Arturo Merino Benitez",
@@ -1271,13 +1517,13 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T14:20:00Z",
-        "estimated_utc": "2026-11-11T14:13:00Z",
+        "scheduled_utc": "2026-11-11T17:20:00Z",
+        "estimated_utc": "2026-11-11T17:13:00Z",
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T11:30:00Z",
-      "estimated_utc": "2026-11-11T11:30:00Z",
-      "actual_utc": "2026-11-11T11:29:00Z",
+      "scheduled_utc": "2026-11-11T14:30:00Z",
+      "estimated_utc": "2026-11-11T14:30:00Z",
+      "actual_utc": "2026-11-11T14:29:00Z",
       "delay_minutes": 0
     },
     {
@@ -1306,8 +1552,8 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 13,
-        "scheduled_utc": "2026-11-11T12:15:00Z",
-        "estimated_utc": "2026-11-11T12:15:00Z",
+        "scheduled_utc": "2026-11-11T15:15:00Z",
+        "estimated_utc": "2026-11-11T15:15:00Z",
         "actual_utc": null
       },
       "other": {
@@ -1319,12 +1565,12 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T14:25:00Z",
+        "scheduled_utc": "2026-11-11T17:25:00Z",
         "estimated_utc": null,
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T12:15:00Z",
-      "estimated_utc": "2026-11-11T12:15:00Z",
+      "scheduled_utc": "2026-11-11T15:15:00Z",
+      "estimated_utc": "2026-11-11T15:15:00Z",
       "actual_utc": null,
       "delay_minutes": 13
     },
@@ -1361,8 +1607,8 @@
         "gate": "4",
         "baggage": null,
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T13:20:00Z",
-        "estimated_utc": "2026-11-11T13:20:00Z",
+        "scheduled_utc": "2026-11-11T16:20:00Z",
+        "estimated_utc": "2026-11-11T16:20:00Z",
         "actual_utc": null
       },
       "other": {
@@ -1374,12 +1620,12 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T15:20:00Z",
+        "scheduled_utc": "2026-11-11T18:20:00Z",
         "estimated_utc": null,
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T13:20:00Z",
-      "estimated_utc": "2026-11-11T13:20:00Z",
+      "scheduled_utc": "2026-11-11T16:20:00Z",
+      "estimated_utc": "2026-11-11T16:20:00Z",
       "actual_utc": null,
       "delay_minutes": 0
     },
@@ -1409,8 +1655,8 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 0,
-        "scheduled_utc": "2026-11-11T13:50:00Z",
-        "estimated_utc": "2026-11-11T13:50:00Z",
+        "scheduled_utc": "2026-11-11T16:50:00Z",
+        "estimated_utc": "2026-11-11T16:50:00Z",
         "actual_utc": null
       },
       "other": {
@@ -1422,12 +1668,12 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-12T04:50:00Z",
+        "scheduled_utc": "2026-11-12T03:50:00Z",
         "estimated_utc": null,
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T13:50:00Z",
-      "estimated_utc": "2026-11-11T13:50:00Z",
+      "scheduled_utc": "2026-11-11T16:50:00Z",
+      "estimated_utc": "2026-11-11T16:50:00Z",
       "actual_utc": null,
       "delay_minutes": 0
     },
@@ -1457,8 +1703,8 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T16:03:00Z",
-        "estimated_utc": "2026-11-11T16:03:00Z",
+        "scheduled_utc": "2026-11-11T19:03:00Z",
+        "estimated_utc": "2026-11-11T19:03:00Z",
         "actual_utc": null
       },
       "other": {
@@ -1470,12 +1716,12 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T18:00:00Z",
+        "scheduled_utc": "2026-11-11T21:00:00Z",
         "estimated_utc": null,
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T16:03:00Z",
-      "estimated_utc": "2026-11-11T16:03:00Z",
+      "scheduled_utc": "2026-11-11T19:03:00Z",
+      "estimated_utc": "2026-11-11T19:03:00Z",
       "actual_utc": null,
       "delay_minutes": null
     },
@@ -1507,8 +1753,8 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": 13,
-        "scheduled_utc": "2026-11-11T19:00:00Z",
-        "estimated_utc": "2026-11-11T19:00:00Z",
+        "scheduled_utc": "2026-11-11T22:00:00Z",
+        "estimated_utc": "2026-11-11T22:00:00Z",
         "actual_utc": null
       },
       "other": {
@@ -1520,12 +1766,12 @@
         "gate": null,
         "baggage": null,
         "delay_minutes": null,
-        "scheduled_utc": "2026-11-11T21:10:00Z",
+        "scheduled_utc": "2026-11-12T00:10:00Z",
         "estimated_utc": null,
         "actual_utc": null
       },
-      "scheduled_utc": "2026-11-11T19:00:00Z",
-      "estimated_utc": "2026-11-11T19:00:00Z",
+      "scheduled_utc": "2026-11-11T22:00:00Z",
+      "estimated_utc": "2026-11-11T22:00:00Z",
       "actual_utc": null,
       "delay_minutes": 13
     }
