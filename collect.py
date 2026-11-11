@@ -44,13 +44,19 @@ def read_key() -> str:
         return key
     env_file = ROOT / ".env"
     if env_file.exists():
-        for line in env_file.read_text(encoding="utf-8").splitlines():
+        # utf-8-sig: Windows editors and PowerShell often write a BOM, which
+        # would otherwise end up glued to the first variable name.
+        for line in env_file.read_text(encoding="utf-8-sig").splitlines():
             line = line.strip()
             if not line or line.startswith("#") or "=" not in line:
                 continue
             name, _, value = line.partition("=")
             if name.strip() == "AVIATIONSTACK_KEY":
-                return value.strip().strip("'\"")
+                value = value.strip().strip("'\"")
+                if value:
+                    return value
+                # An empty value means the placeholder was never filled in.
+                break
     raise CollectError(
         "AVIATIONSTACK_KEY is not set (environment variable or .env file)"
     )

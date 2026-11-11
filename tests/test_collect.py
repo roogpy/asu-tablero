@@ -366,3 +366,20 @@ def test_key_is_read_from_env_file(monkeypatch, tmp_path):
     )
     monkeypatch.setattr(collect, "ROOT", tmp_path)
     assert collect.read_key() == "secret-value"
+
+
+def test_env_file_written_with_a_bom_is_read(monkeypatch, tmp_path):
+    # Notepad and PowerShell add a BOM; it must not stick to the variable name.
+    monkeypatch.delenv("AVIATIONSTACK_KEY", raising=False)
+    (tmp_path / ".env").write_text("AVIATIONSTACK_KEY=con-bom\n", encoding="utf-8-sig")
+    monkeypatch.setattr(collect, "ROOT", tmp_path)
+    assert collect.read_key() == "con-bom"
+
+
+def test_empty_key_in_env_file_is_reported(monkeypatch, tmp_path):
+    monkeypatch.delenv("AVIATIONSTACK_KEY", raising=False)
+    (tmp_path / ".env").write_text("AVIATIONSTACK_KEY=\n", encoding="utf-8")
+    monkeypatch.setattr(collect, "ROOT", tmp_path)
+    with pytest.raises(collect.CollectError) as error:
+        collect.read_key()
+    assert "AVIATIONSTACK_KEY" in str(error.value)
