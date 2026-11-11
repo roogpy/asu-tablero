@@ -56,6 +56,19 @@ def local_date(now: datetime | None = None) -> str:
     return now.astimezone(local_timezone()).date().isoformat()
 
 
+def local_date_of(utc_iso):
+    """The Asuncion calendar date of a UTC timestamp, or None."""
+    if not utc_iso:
+        return None
+    try:
+        moment = datetime.fromisoformat(str(utc_iso).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if moment.tzinfo is None:
+        moment = moment.replace(tzinfo=timezone.utc)
+    return moment.astimezone(local_timezone()).date().isoformat()
+
+
 def to_utc(value):
     """Normalize an AviationStack timestamp to an ISO string ending in Z."""
     if not value or not isinstance(value, str):
@@ -185,6 +198,14 @@ def normalize_flight(raw: dict, direction: str) -> dict:
         },
         "status": clean(raw.get("flight_status")),
         "flight_date": clean(raw.get("flight_date")),
+        # The ASU calendar day this operation belongs to. One API response can
+        # span two dates, so this is what separates and filters them.
+        "local_date": (
+            local_date_of(own["scheduled_utc"])
+            or local_date_of(own["estimated_utc"])
+            or local_date_of(own["actual_utc"])
+            or clean(raw.get("flight_date"))
+        ),
         "marketing": [],
         "codeshare_of": None,
         "asu": own,
@@ -194,12 +215,15 @@ def normalize_flight(raw: dict, direction: str) -> dict:
         "actual_utc": own["actual_utc"],
         "delay_minutes": own["delay_minutes"],
     }
+    # The key is scoped to the day: the same flight number comes back once per
+    # date in a single response, and those are different operations.
+    day = record["local_date"] or "sin-fecha"
     if codeshared:
         operating = upper(codeshared.get("flight_iata") or codeshared.get("flight_icao"))
-        record["_operating_key"] = operating or flight_key(record)
+        record["_operating_key"] = day + "|" + (operating or flight_key(record))
         record["_is_marketing"] = True
     else:
-        record["_operating_key"] = flight_key(record)
+        record["_operating_key"] = day + "|" + flight_key(record)
         record["_is_marketing"] = False
     return record
 
@@ -244,7 +268,7 @@ def dedupe(records: list) -> list:
         if key in operating:
             add_marketing_number(operating[key], record["flight"]["iata"])
             continue
-        record["codeshare_of"] = key
+        record["codeshare_of"] = key.split("|", 1)[-1]  # drop the day prefix
         operating[key] = record
         order.append(key)
 
@@ -265,9 +289,17 @@ def dedupe(records: list) -> list:
     return result
 
 
-def flights_from_payload(payload: dict, direction: str) -> list:
+def flights_from_payload(payload: dict, direction: str, date: str | None = None) -> list:
+    """Normalized, deduplicated flights, optionally only those of one ASU day.
+
+    One API response covers a rolling window that spans two calendar dates, so
+    a snapshot keeps the day it is for and leaves the rest in data/raw.
+    """
     rows = (payload or {}).get("data") or []
-    return dedupe([normalize_flight(row, direction) for row in rows])
+    flights = dedupe([normalize_flight(row, direction) for row in rows])
+    if date is None:
+        return flights
+    return [flight for flight in flights if flight["local_date"] == date]
 
 
 # --------------------------------------------------------------------------- #
@@ -326,8 +358,10 @@ def build_day(
     date: str,
     collected_at: str | None = None,
 ) -> dict:
-    arrivals = flights_from_payload(arrivals_payload, "arrival")
-    departures = flights_from_payload(departures_payload, "departure")
+    all_arrivals = flights_from_payload(arrivals_payload, "arrival")
+    all_departures = flights_from_payload(departures_payload, "departure")
+    arrivals = [f for f in all_arrivals if f["local_date"] == date]
+    departures = [f for f in all_departures if f["local_date"] == date]
     return {
         "schema": 1,
         "date": date,
@@ -337,6 +371,12 @@ def build_day(
         "pagination": {
             "arrivals": (arrivals_payload or {}).get("pagination") or {},
             "departures": (departures_payload or {}).get("pagination") or {},
+        },
+        # The response window covers more than one day; what is left out here
+        # stays available in data/raw and can be rebuilt with --from-raw.
+        "outside_day": {
+            "arrivals": len(all_arrivals) - len(arrivals),
+            "departures": len(all_departures) - len(departures),
         },
         "summary": summarize(arrivals, departures),
         "arrivals": arrivals,

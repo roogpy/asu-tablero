@@ -64,7 +64,12 @@ python collect.py              # 2 requests: today's snapshot + index
 python collect.py --from-raw   # rebuild a day from data/raw, 0 requests
 python collect.py --index-only # rebuild data/index.json, 0 requests
 python collect.py --date 2026-11-10
+python collect.py --from-raw --date 2026-11-10 --raw-date 2026-11-11
 ```
+
+The last line rebuilds a different day from a response that was saved under
+another date: the API window reaches back about a day and a half, so the day
+before a snapshot can be rebuilt from it without spending a request.
 
 `probe.py` (phase 0) answers whether one request per direction covers a whole
 day at ASU:
@@ -145,6 +150,14 @@ Each flight keeps the ASU side under `asu` and the other airport under `other`:
 Rules that the tests pin down:
 
 - Times are stored in UTC and displayed in `America/Asuncion`.
+- `local_date` is the ASU calendar day of the operation, derived from the
+  scheduled time in Asuncion, **not** from the UTC date: a flight at 21:35 on
+  the 10th is 00:35 UTC on the 11th and still belongs to the 10th.
+- One API response covers a rolling window of roughly a day and a half, so it
+  mixes dates. A snapshot keeps only the flights of its own `local_date`;
+  `outside_day` counts what was left out, and `data/raw` keeps all of it.
+- Deduplication is scoped by day. The same flight number appears once per date
+  in a single response, and those are different operations.
 - A record with `flight.codeshared` is a marketing copy: it is merged into the
   operating flight and its number lands in `marketing`. If the operating flight
   is missing from the response, the copy is kept and `codeshare_of` names it.
@@ -156,6 +169,15 @@ Rules that the tests pin down:
 
 Raw API responses are kept in `data/raw/YYYY-MM-DD_{arr|dep}.json` so a day can
 be rebuilt without spending requests.
+
+### One thing to keep an eye on
+
+The free plan caps a response at 100 records and does not paginate for free.
+The first real snapshot returned 71 arrival and 79 departure records for a
+window of about a day and a half, which fits — but not by much. `collect.py`
+prints a `WARNING` when `pagination.total` reaches the limit, and the value is
+stored in every day file under `pagination`. If that warning ever shows up,
+the day is truncated and the snapshot is missing flights.
 
 ## Regenerating assets
 

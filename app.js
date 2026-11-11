@@ -11,6 +11,7 @@
   var STATUS_LABEL = {
     // Used in the Resumen tab, where arrivals and departures are counted together.
     neutral: {
+      unknown: 'Sin dato',
       scheduled: 'Programado',
       active: 'En vuelo',
       landed: 'Finalizado',
@@ -451,7 +452,6 @@
     return fetchJSON(state.base + '/' + date + '.json').then(function (day) {
       state.date = date;
       state.day = day;
-      remember('asu.date', date);
       $('day-select').value = date;
       updateStepButtons();
       renderFlights('arrivals');
@@ -500,9 +500,10 @@
       state.index = result.index;
       var days = result.index.days || [];
       if (!days.length) { setStatus('Todavía no hay datos recolectados.', true); return; }
-      var saved = recall('asu.date');
+      // A daily board always opens on the newest day; browsing back is a
+      // deliberate act with the picker, not something to remember.
       var dates = days.map(function (day) { return day.date; });
-      state.date = dates.indexOf(saved) >= 0 ? saved : dates[dates.length - 1];
+      state.date = dates[dates.length - 1];
       fillDayPicker();
       return loadDay(state.date);
     }).catch(function (error) {

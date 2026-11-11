@@ -2,7 +2,7 @@
    network-first with a cache fallback, so the last loaded day stays available
    offline. Bump CACHE_VERSION whenever the shell changes. */
 
-var CACHE_VERSION = 'asu-v1';
+var CACHE_VERSION = 'asu-v3';
 var SHELL_CACHE = CACHE_VERSION + '-shell';
 var DATA_CACHE = CACHE_VERSION + '-data';
 
@@ -20,7 +20,12 @@ var SHELL_FILES = [
 self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open(SHELL_CACHE).then(function (cache) {
-      return cache.addAll(SHELL_FILES);
+      // cache: 'reload' forces the network. Plain addAll may take the files
+      // from the browser's HTTP cache, which would install a new version of
+      // the worker around the previous version's files.
+      return Promise.all(SHELL_FILES.map(function (file) {
+        return cache.add(new Request(file, { cache: 'reload' }));
+      }));
     }).then(function () {
       return self.skipWaiting();
     })

@@ -129,6 +129,23 @@ def report(day: dict) -> None:
     print("  by status  : " + ", ".join(
         name + "=" + str(count) for name, count in summary["by_status"]["all"].items()
     ))
+    outside = day.get("outside_day") or {}
+    if outside.get("arrivals") or outside.get("departures"):
+        print(
+            "  outside this day (kept in data/raw): "
+            + str(outside.get("arrivals", 0))
+            + " arrivals, "
+            + str(outside.get("departures", 0))
+            + " departures"
+        )
+    for name, pagination in (day.get("pagination") or {}).items():
+        total = pagination.get("total")
+        limit = pagination.get("limit")
+        if isinstance(total, int) and isinstance(limit, int) and total >= limit:
+            print(
+                "  WARNING: " + name + " hit the page limit (" + str(total) + "/"
+                + str(limit) + "); the response may be truncated"
+            )
 
 
 def write_index() -> dict:
@@ -147,6 +164,11 @@ def main(argv=None) -> int:
         help="rebuild the day from data/raw without calling the API",
     )
     parser.add_argument(
+        "--raw-date",
+        help="date of the raw files to read (default: --date). A response "
+        "window also covers the previous day, which can be rebuilt this way.",
+    )
+    parser.add_argument(
         "--index-only", action="store_true", help="rebuild data/index.json and exit"
     )
     args = parser.parse_args(argv)
@@ -160,7 +182,7 @@ def main(argv=None) -> int:
             return 0
 
         if args.from_raw:
-            arrivals, departures = load_raw(date)
+            arrivals, departures = load_raw(args.raw_date or date)
             requests_sent = 0
         else:
             budget = asu.roll_budget(asu.load_budget(BUDGET_PATH), now)

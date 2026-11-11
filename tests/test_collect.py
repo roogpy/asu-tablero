@@ -161,6 +161,41 @@ def test_repeated_operating_record_is_merged():
     assert flights[0]["marketing"] == []
 
 
+def two_days_payload():
+    """The same flight number on two dates, as a real response returns it."""
+    def row(date, hour):
+        return {
+            "flight_date": date,
+            "flight_status": "landed",
+            "arrival": {"iata": "ASU", "scheduled": date + "T" + hour + ":00-03:00"},
+            "departure": {"iata": "AEP"},
+            "airline": {"name": "test air", "iata": "TT"},
+            "flight": {"number": "9", "iata": "TT9", "icao": "TST9", "codeshared": None},
+        }
+    return {"data": [row("2026-11-10", "10:00"), row("2026-11-11", "10:00")]}
+
+
+def test_same_number_on_two_days_stays_two_flights():
+    flights = asu.flights_from_payload(two_days_payload(), "arrival")
+    assert len(flights) == 2
+    assert [f["local_date"] for f in flights] == ["2026-11-10", "2026-11-11"]
+
+
+def test_a_day_keeps_only_its_own_flights():
+    day = asu.build_day(two_days_payload(), {"data": []}, "2026-11-11")
+    assert len(day["arrivals"]) == 1
+    assert day["arrivals"][0]["local_date"] == "2026-11-11"
+    assert day["outside_day"]["arrivals"] == 1
+
+
+def test_local_date_follows_asuncion_not_utc(day):
+    # Scheduled 21:35-03 on the 10th is 00:35Z on the 11th, but it is still
+    # an operation of the 10th at ASU.
+    late = [f for f in day["arrivals"] if f["flight"]["iata"] == "CM441"][0]
+    assert late["scheduled_utc"] == "2026-11-11T00:35:00Z"
+    assert late["local_date"] == "2026-11-10"
+
+
 def test_flights_are_sorted_by_scheduled_time_with_unknowns_last(day):
     times = [f["scheduled_utc"] for f in day["departures"]]
     known = [t for t in times if t]

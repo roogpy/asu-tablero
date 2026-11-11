@@ -25,6 +25,10 @@
       "total": 7
     }
   },
+  "outside_day": {
+    "arrivals": 0,
+    "departures": 0
+  },
   "summary": {
     "arrivals": 7,
     "departures": 6,
@@ -130,6 +134,7 @@
       },
       "status": "landed",
       "flight_date": "2026-11-10",
+      "local_date": "2026-11-10",
       "marketing": [],
       "codeshare_of": null,
       "asu": {
@@ -177,6 +182,7 @@
       },
       "status": "landed",
       "flight_date": "2026-11-10",
+      "local_date": "2026-11-10",
       "marketing": [
         "LA7658"
       ],
@@ -226,6 +232,7 @@
       },
       "status": "landed",
       "flight_date": "2026-11-10",
+      "local_date": "2026-11-10",
       "marketing": [],
       "codeshare_of": null,
       "asu": {
@@ -273,6 +280,7 @@
       },
       "status": "cancelled",
       "flight_date": "2026-11-10",
+      "local_date": "2026-11-10",
       "marketing": [],
       "codeshare_of": null,
       "asu": {
@@ -320,6 +328,7 @@
       },
       "status": "active",
       "flight_date": "2026-11-10",
+      "local_date": "2026-11-10",
       "marketing": [],
       "codeshare_of": null,
       "asu": {
@@ -367,6 +376,7 @@
       },
       "status": "scheduled",
       "flight_date": "2026-11-10",
+      "local_date": "2026-11-10",
       "marketing": [
         "AV6291"
       ],
@@ -416,6 +426,7 @@
       },
       "status": "scheduled",
       "flight_date": "2026-11-10",
+      "local_date": "2026-11-10",
       "marketing": [],
       "codeshare_of": "LA8092",
       "asu": {
@@ -465,6 +476,7 @@
       },
       "status": "landed",
       "flight_date": "2026-11-10",
+      "local_date": "2026-11-10",
       "marketing": [
         "IB7702"
       ],
@@ -514,6 +526,7 @@
       },
       "status": "landed",
       "flight_date": "2026-11-10",
+      "local_date": "2026-11-10",
       "marketing": [],
       "codeshare_of": null,
       "asu": {
@@ -561,6 +574,7 @@
       },
       "status": "cancelled",
       "flight_date": "2026-11-10",
+      "local_date": "2026-11-10",
       "marketing": [],
       "codeshare_of": null,
       "asu": {
@@ -608,6 +622,7 @@
       },
       "status": "active",
       "flight_date": "2026-11-10",
+      "local_date": "2026-11-10",
       "marketing": [],
       "codeshare_of": null,
       "asu": {
@@ -655,6 +670,7 @@
       },
       "status": "scheduled",
       "flight_date": "2026-11-10",
+      "local_date": "2026-11-10",
       "marketing": [],
       "codeshare_of": null,
       "asu": {
@@ -702,6 +718,7 @@
       },
       "status": "diverted",
       "flight_date": "2026-11-10",
+      "local_date": "2026-11-10",
       "marketing": [],
       "codeshare_of": null,
       "asu": {
