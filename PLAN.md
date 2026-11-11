@@ -13,7 +13,8 @@ Todo corre en la nube: GitHub Actions junta los datos cada noche y GitHub Pages 
 
 ## Decisiones tomadas
 - El celular no llama a la API: el plan gratis es solo HTTP (una página HTTPS no puede pedir datos por HTTP) y la clave quedaría expuesta.
-- Una foto por día a las 23:30 (hora de Paraguay), para ver el estado final de cada vuelo. No es un tablero en vivo.
+- Una foto por día a las 06:00 (hora de Paraguay), para ver el día por delante: el tablero es para los vuelos que faltan, y los que ya aterrizaron se ocultan. No es un tablero en vivo: la foto queda congelada todo el día.
+- Se cambió desde las 23:30 el 11/11/2026. A esa hora todo figuraba aterrizado y la lista quedaba vacía; el costo de mover la foto es perder el cierre del día (cancelaciones y demoras posteriores no quedan registradas).
 - Presupuesto: ~60 consultas al mes de uso normal + ~35 de margen.
 - Repo público: GitHub Pages gratis requiere repo público en una cuenta personal. Los datos de vuelos son información pública; la clave queda protegida en los secretos de GitHub.
 

@@ -8,10 +8,29 @@ to this repository; GitHub Pages serves a static page that reads those JSON
 files. No server, no build step, and the phone never calls the flight API.
 
 ```
-GitHub Actions (23:30 Paraguay)  ->  collect.py  ->  data/YYYY-MM-DD.json + data/index.json  ->  git commit
+GitHub Actions (06:00 Paraguay)  ->  collect.py  ->  data/YYYY-MM-DD.json + data/index.json  ->  git commit
 GitHub Pages (HTTPS)             ->  index.html + app.js + sw.js  ->  reads data/*.json
 Android                          ->  opens the Pages URL, "Add to Home screen"
 ```
+
+## What the board shows, and what it does not
+
+The snapshot is taken at 06:00 Paraguay time, so it captures the day ahead,
+and the lists leave out the flights that have already landed. That is the
+point of the board: what is still coming.
+
+Two consequences worth knowing:
+
+- **It does not update during the day.** The 06:00 picture is frozen until the
+  next morning. A flight that is delayed or cancelled at noon still shows its
+  morning status, and the day file records no final outcome, so Historial
+  tracks volume rather than how the day actually ended.
+- **Statuses from the free plan lag.** In the first real snapshot, 14 of 33
+  flights still read `active` or `scheduled` although their time had passed
+  hours earlier. Only what the API marks as `landed` can be hidden.
+
+Collecting a second snapshot late at night would fix both, but 2 runs a day is
+120 requests a month against a 100-request plan.
 
 ## Layout
 

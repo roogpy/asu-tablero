@@ -23,7 +23,8 @@ Android phone                  ->  opens the Pages URL, "Add to Home screen"
 - Tests never hit the API: they use fixtures under `tests/fixtures/`.
 
 ## Schedule
-- Cron `30 2 * * *` (UTC) = 23:30 America/Asuncion (UTC-3). GitHub may delay scheduled runs; this is acceptable for a daily snapshot.
+- Cron `0 9 * * *` (UTC) = 06:00 America/Asuncion (UTC-3), so the snapshot catches the day ahead: the board is for flights still to come, and the lists hide the ones already landed. GitHub may delay scheduled runs; this is acceptable for a daily snapshot.
+- Trade-off accepted: the day is captured before it happens, so cancellations and delays that occur later are not recorded.
 - Also allow `workflow_dispatch` for manual runs (counts against the budget).
 
 ## Data rules

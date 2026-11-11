@@ -1,10 +1,11 @@
 name: Daily ASU snapshot
 
 on:
-  # 02:30 UTC = 23:30 America/Asuncion (UTC-3). GitHub may delay scheduled
-  # runs by some minutes; that is fine for a once-a-day snapshot.
+  # 09:00 UTC = 06:00 America/Asuncion (UTC-3): the day ahead, which is what
+  # the board is for. GitHub may delay scheduled runs by some minutes; that is
+  # fine for a once-a-day snapshot.
   schedule:
-    - cron: "30 2 * * *"
+    - cron: "0 9 * * *"
   workflow_dispatch:
 
 permissions:
