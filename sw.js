@@ -2,7 +2,7 @@
    network-first with a cache fallback, so the last loaded day stays available
    offline. Bump CACHE_VERSION whenever the shell changes. */
 
-var CACHE_VERSION = 'asu-v3';
+var CACHE_VERSION = 'asu-v4';
 var SHELL_CACHE = CACHE_VERSION + '-shell';
 var DATA_CACHE = CACHE_VERSION + '-data';
 

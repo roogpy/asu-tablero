@@ -37,12 +37,18 @@
     }
   };
 
+  // A flight already on the ground is not what the board is for, so the lists
+  // leave it out. Cancelled, diverted and incident stay: those still matter to
+  // whoever is waiting. The toggle brings the finished ones back.
+  var FINISHED = ['landed'];
+
   var state = {
     base: 'data',
     index: null,
     date: null,
     day: null,
     tab: 'arrivals',
+    showFinished: false,
     filters: { arrivals: '', departures: '' }
   };
 
@@ -169,21 +175,62 @@
     return haystack.indexOf(needle) >= 0;
   }
 
+  function isFinished(flight) {
+    return FINISHED.indexOf(flight.status) >= 0;
+  }
+
   function renderFlights(kind) {
     var list = $('list-' + kind);
     clear(list);
     var flights = (state.day && state.day[kind]) || [];
+    var finished = flights.filter(isFinished).length;
+    var pending = flights.filter(function (flight) {
+      return state.showFinished || !isFinished(flight);
+    });
     var needle = state.filters[kind].trim().toLowerCase();
-    var shown = flights.filter(function (flight) { return matchesFilter(flight, needle); });
+    var shown = pending.filter(function (flight) { return matchesFilter(flight, needle); });
+
+    updateToggle(kind, finished);
 
     if (!shown.length) {
-      var message = flights.length
-        ? 'Ningún vuelo coincide con el filtro.'
-        : 'Sin vuelos para este día.';
+      var message;
+      if (!flights.length) {
+        message = 'Sin vuelos para este día.';
+      } else if (needle) {
+        message = 'Ningún vuelo coincide con el filtro.';
+      } else if (finished) {
+        message = 'Todos los vuelos de este día ya ' +
+          (kind === 'arrivals' ? 'aterrizaron' : 'salieron') +
+          '. Tocá “Ver ' + finished + ' finalizados” para verlos.';
+      } else {
+        message = 'Sin vuelos para este día.';
+      }
       list.appendChild(el('li', 'empty', message));
       return;
     }
     shown.forEach(function (flight) { list.appendChild(flightRow(flight)); });
+  }
+
+  function updateToggle(kind, finished) {
+    var button = $('toggle-' + kind);
+    if (!button) { return; }
+    if (!finished) {
+      button.hidden = true;
+      return;
+    }
+    button.hidden = false;
+    button.textContent = state.showFinished
+      ? 'Ocultar finalizados'
+      : 'Ver ' + finished + ' finalizados';
+    button.setAttribute('aria-pressed', state.showFinished ? 'true' : 'false');
+  }
+
+  function setShowFinished(value) {
+    state.showFinished = value;
+    remember('asu.showFinished', value ? '1' : '0');
+    renderFlights('arrivals');
+    renderFlights('departures');
+    describeState();
   }
 
   // ---------------------------------------------------------------- resumen
@@ -390,7 +437,13 @@
     var bits = [];
     if (state.day) {
       var summary = state.day.summary;
-      bits.push(summary.total + ' operaciones');
+      var open = state.day.arrivals.concat(state.day.departures)
+        .filter(function (flight) { return !isFinished(flight); }).length;
+      bits.push(
+        state.showFinished || open === summary.total
+          ? summary.total + ' operaciones'
+          : open + ' pendientes de ' + summary.total
+      );
       if (state.day.collected_at) {
         bits.push('tomado ' + (hhmm(state.day.collected_at) || '') + ' hs');
       }
@@ -488,7 +541,11 @@
         state.filters[kind] = event.target.value;
         renderFlights(kind);
       });
+      $('toggle-' + kind).addEventListener('click', function () {
+        setShowFinished(!state.showFinished);
+      });
     });
+    state.showFinished = recall('asu.showFinished') === '1';
     window.addEventListener('online', describeState);
     window.addEventListener('offline', describeState);
 
