@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "limits": {
+    "per_day": 3,
+    "per_month": 95
+  },
+  "day": "2026-11-11",
+  "day_count": 0,
+  "month": "2026-11",
+  "month_count": 0,
+  "total": 0,
+  "last_run": null
+}

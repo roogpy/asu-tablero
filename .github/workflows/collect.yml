@@ -1,0 +1,48 @@
+name: Daily ASU snapshot
+
+on:
+  # 02:30 UTC = 23:30 America/Asuncion (UTC-3). GitHub may delay scheduled
+  # runs by some minutes; that is fine for a once-a-day snapshot.
+  schedule:
+    - cron: "30 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: asu-snapshot
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests before spending requests
+        run: python -m pytest
+
+      - name: Collect the snapshot
+        env:
+          AVIATIONSTACK_KEY: ${{ secrets.AVIATIONSTACK_KEY }}
+        run: python collect.py
+
+      - name: Commit the new data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No new data to commit."
+            exit 0
+          fi
+          git commit -m "data: ASU snapshot $(date -u +%Y-%m-%d)"
+          git push

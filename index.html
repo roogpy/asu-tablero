@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es-PY">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b2a43">
+<meta name="description" content="Tablero diario de llegadas y salidas del Aeropuerto Silvio Pettirossi (ASU), Luque, Paraguay.">
+<title>Tablero ASU</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-row">
+    <h1>Tablero ASU</h1>
+    <span class="airport">Silvio Pettirossi · Luque</span>
+  </div>
+  <div class="day-picker">
+    <button id="prev-day" class="step" type="button" aria-label="Día anterior">‹</button>
+    <label class="day-select">
+      <span class="sr-only">Elegir día</span>
+      <select id="day-select" aria-label="Elegir día"></select>
+    </label>
+    <button id="next-day" class="step" type="button" aria-label="Día siguiente">›</button>
+  </div>
+  <p id="status-line" class="status-line" role="status">Cargando…</p>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button class="tab is-active" role="tab" data-tab="arrivals" aria-selected="true">Llegadas</button>
+  <button class="tab" role="tab" data-tab="departures" aria-selected="false">Salidas</button>
+  <button class="tab" role="tab" data-tab="summary" aria-selected="false">Resumen</button>
+  <button class="tab" role="tab" data-tab="history" aria-selected="false">Historial</button>
+</nav>
+
+<main id="main">
+  <section id="panel-arrivals" class="panel is-active" role="tabpanel">
+    <div class="filter">
+      <input id="filter-arrivals" type="search" inputmode="search" placeholder="Filtrar vuelo, aerolínea u origen" aria-label="Filtrar llegadas">
+    </div>
+    <ul id="list-arrivals" class="flights"></ul>
+  </section>
+
+  <section id="panel-departures" class="panel" role="tabpanel" hidden>
+    <div class="filter">
+      <input id="filter-departures" type="search" inputmode="search" placeholder="Filtrar vuelo, aerolínea o destino" aria-label="Filtrar salidas">
+    </div>
+    <ul id="list-departures" class="flights"></ul>
+  </section>
+
+  <section id="panel-summary" class="panel" role="tabpanel" hidden></section>
+
+  <section id="panel-history" class="panel" role="tabpanel" hidden></section>
+</main>
+
+<footer class="foot">
+  <p>Una foto por día a las 23:30 (hora de Paraguay). Datos de AviationStack. Horas en hora de Asunción.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

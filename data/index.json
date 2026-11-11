@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "airport": {
+    "iata": "ASU",
+    "icao": "SGAS",
+    "name": "Silvio Pettirossi International Airport",
+    "city": "Luque",
+    "country": "Paraguay",
+    "timezone": "America/Asuncion"
+  },
+  "updated_at": "2026-11-11T13:50:27Z",
+  "latest": null,
+  "days": []
+}
