@@ -4,10 +4,10 @@
     "per_day": 3,
     "per_month": 95
   },
-  "day": "2026-11-15",
+  "day": "2026-11-16",
   "day_count": 2,
   "month": "2026-11",
-  "month_count": 10,
-  "total": 10,
-  "last_run": "2026-11-15T15:58:39Z"
+  "month_count": 12,
+  "total": 12,
+  "last_run": "2026-11-16T19:05:33Z"
 }
