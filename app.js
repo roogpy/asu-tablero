@@ -8,26 +8,11 @@
   var TZ = 'America/Asuncion';
   var DELAY_THRESHOLD = 15;
 
+  // Flight rows carry no status label: the API's status is unreliable (the
+  // LA and PZ copies of one aircraft disagree). Only the Resumen tab counts it.
   var STATUS_LABEL = {
-    // Used in the Resumen tab, where arrivals and departures are counted together.
     neutral: {
       unknown: 'Sin dato',
-      scheduled: 'Programado',
-      active: 'En vuelo',
-      landed: 'Finalizado',
-      cancelled: 'Cancelado',
-      incident: 'Incidente',
-      diverted: 'Desviado'
-    },
-    arrival: {
-      scheduled: 'Programado',
-      active: 'En vuelo',
-      landed: 'Aterrizó',
-      cancelled: 'Cancelado',
-      incident: 'Incidente',
-      diverted: 'Desviado'
-    },
-    departure: {
       scheduled: 'Programado',
       active: 'En vuelo',
       landed: 'Finalizado',
@@ -99,22 +84,35 @@
     return dayFormat.format(moment).replace('.', '') + ' · ' + date;
   }
 
-  function statusLabel(flight) {
-    var table = STATUS_LABEL[flight.direction] || STATUS_LABEL.arrival;
-    if (!flight.status) { return 'Sin dato'; }
-    return table[flight.status] || flight.status;
-  }
+  // Airport names from the API run long ("Tancredo Neves International
+  // Airport") and wrap to two lines on a phone. The city reads better and is
+  // short; the full airport name stays in the row's tooltip and the filter.
+  var CITY = {
+    AEP: 'Buenos Aires', EZE: 'Buenos Aires', COR: 'Córdoba', ROS: 'Rosario',
+    MDZ: 'Mendoza', SLA: 'Salta', JUJ: 'Jujuy', IGR: 'Iguazú',
+    GRU: 'São Paulo', CGH: 'São Paulo', VCP: 'Campinas', SJK: 'S. J. dos Campos',
+    GIG: 'Río de Janeiro', SDU: 'Río de Janeiro', CNF: 'Belo Horizonte',
+    BSB: 'Brasilia', CWB: 'Curitiba', POA: 'Porto Alegre', FLN: 'Florianópolis',
+    IGU: 'Foz do Iguaçu', MVD: 'Montevideo', SCL: 'Santiago', LIM: 'Lima',
+    VVI: 'Santa Cruz', LPB: 'La Paz', BOG: 'Bogotá', PTY: 'Panamá',
+    MIA: 'Miami', MAD: 'Madrid', AGT: 'Ciudad del Este', ENO: 'Encarnación'
+  };
 
-  function statusClass(status) {
-    var known = ['scheduled', 'active', 'landed', 'cancelled', 'incident', 'diverted'];
-    return 'chip chip-' + (known.indexOf(status) >= 0 ? status : 'unknown');
+  // Fallback for airports missing above: drop the generic words.
+  function shortAirport(name) {
+    return name
+      .replace(/\b(Aeroporto|Aeropuerto)\s+(Internacional|International)\s+(de\s+)?/i, '')
+      .replace(/\s*\(?\b(International|Internacional)\b\)?(\s+Airport)?/ig, '')
+      .replace(/\s+Airport\b/i, '')
+      .trim() || name;
   }
 
   function placeName(flight) {
     var other = flight.other || {};
-    var name = other.airport || other.iata || other.icao;
+    var city = other.iata && CITY[other.iata];
+    var name = city || (other.airport && shortAirport(other.airport)) || other.iata || other.icao;
     if (!name) { return 'Sin dato'; }
-    if (other.airport && other.iata) { return other.airport + ' (' + other.iata + ')'; }
+    if (other.iata && name !== other.iata) { return name + ' (' + other.iata + ')'; }
     return name;
   }
 
@@ -137,10 +135,8 @@
 
     var head = el('div', 'place');
     head.textContent = (flight.direction === 'arrival' ? 'desde ' : 'hacia ') + placeName(flight);
+    if (flight.other && flight.other.airport) { head.title = flight.other.airport; }
     item.appendChild(head);
-
-    var chip = el('span', statusClass(flight.status), statusLabel(flight));
-    item.appendChild(chip);
 
     var meta = el('div', 'meta');
     var bits = [];
@@ -148,9 +144,10 @@
     bits.push(number);
     if (flight.airline && flight.airline.name) { bits.push(flight.airline.name); }
     var asu = flight.asu || {};
-    if (asu.gate) { bits.push('Puerta ' + asu.gate); }
-    if (asu.terminal) { bits.push('Terminal ' + asu.terminal); }
-    if (flight.direction === 'arrival' && asu.baggage) { bits.push('Cinta ' + asu.baggage); }
+    // Non-breaking spaces keep "Puerta 4" together when the line wraps.
+    if (asu.gate) { bits.push('Puerta ' + asu.gate); }
+    if (asu.terminal) { bits.push('Terminal ' + asu.terminal); }
+    if (flight.direction === 'arrival' && asu.baggage) { bits.push('Cinta ' + asu.baggage); }
     if (flight.marketing && flight.marketing.length) {
       bits.push('también ' + flight.marketing.join(', '));
     }
@@ -170,7 +167,7 @@
       flight.flight.iata, flight.flight.icao, flight.flight.number,
       flight.airline ? flight.airline.name : '', flight.airline ? flight.airline.iata : '',
       flight.other ? flight.other.airport : '', flight.other ? flight.other.iata : '',
-      statusLabel(flight)
+      placeName(flight)
     ].join(' ').toLowerCase();
     return haystack.indexOf(needle) >= 0;
   }

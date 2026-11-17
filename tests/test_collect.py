@@ -215,6 +215,62 @@ def test_repeated_operating_record_is_merged():
     assert flights[0]["marketing"] == []
 
 
+def twin_row(airline, number, hour="10:00", origin="GRU", **extra):
+    arrival = {"iata": "ASU", "scheduled": "2026-11-16T" + hour + ":00-03:00"}
+    arrival.update(extra)
+    return {
+        "flight_status": "active",
+        "arrival": arrival,
+        "departure": {"iata": origin},
+        "airline": {"name": airline + " air", "iata": airline},
+        "flight": {"number": number, "iata": airline + number, "codeshared": None},
+    }
+
+
+def test_la_and_pz_copies_of_one_aircraft_become_one_flight():
+    rows = [
+        twin_row("LA", "1302"),
+        twin_row("PZ", "1302", estimated="2026-11-16T10:20:00-03:00", delay=20),
+        twin_row("LH", "4738"),
+    ]
+    rows[2]["flight"]["codeshared"] = {"flight_iata": "pz1302"}
+    flights = asu.flights_from_payload({"data": rows}, "arrival")
+    assert len(flights) == 1
+    # The PZ copy carries the times, so it is the one kept.
+    assert flights[0]["flight"]["iata"] == "PZ1302"
+    assert flights[0]["marketing"] == ["LA1302", "LH4738"]
+
+
+def test_the_richer_twin_wins_whatever_its_airline():
+    rows = [twin_row("PZ", "1305"), twin_row("LA", "1305", gate="1")]
+    rows[0]["flight_status"] = None
+    flights = asu.flights_from_payload({"data": rows}, "arrival")
+    assert [f["flight"]["iata"] for f in flights] == ["LA1305"]
+    assert flights[0]["marketing"] == ["PZ1305"]
+
+
+def test_twins_on_a_tie_keep_pz():
+    rows = [twin_row("LA", "1300"), twin_row("PZ", "1300")]
+    flights = asu.flights_from_payload({"data": rows}, "arrival")
+    assert [f["flight"]["iata"] for f in flights] == ["PZ1300"]
+
+
+def test_twins_need_same_time_and_route():
+    rows = [
+        twin_row("LA", "1304"),
+        twin_row("PZ", "1304", hour="11:00"),
+        twin_row("LA", "1320", origin="LIM"),
+        twin_row("PZ", "1320", origin="SCL"),
+    ]
+    flights = asu.flights_from_payload({"data": rows}, "arrival")
+    assert len(flights) == 4
+
+
+def test_other_airlines_with_one_number_are_not_twins():
+    rows = [twin_row("JA", "3796"), twin_row("WJ", "3796")]
+    assert len(asu.flights_from_payload({"data": rows}, "arrival")) == 2
+
+
 def two_days_payload():
     """The same flight number on two dates, as a real response returns it."""
     def row(date, hour):

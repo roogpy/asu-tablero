@@ -312,6 +312,74 @@ def dedupe(records: list) -> list:
     return result
 
 
+# Airline groups that file the same aircraft under each code without marking
+# either copy as a codeshare: LATAM (LA) and LATAM Paraguay (PZ) both list
+# LA1302 and PZ1302, same time, same route. The first code in each group wins
+# ties when both copies carry the same amount of data.
+TWIN_AIRLINES = (("PZ", "LA"),)
+
+
+def _twin_group(airline_iata):
+    for group in TWIN_AIRLINES:
+        if airline_iata in group:
+            return group
+    return None
+
+
+def _richness(record: dict) -> int:
+    """How much real data a copy carries, to keep the more informative one."""
+    asu = record["asu"]
+    filled = [
+        record["status"],
+        record["estimated_utc"],
+        record["actual_utc"],
+        record["delay_minutes"],
+        asu["gate"],
+        asu["terminal"],
+        asu["baggage"],
+    ]
+    return sum(1 for value in filled if value is not None) + len(record["marketing"])
+
+
+def merge_twins(records: list) -> list:
+    """Collapse twin-airline copies of one aircraft into a single flight.
+
+    Two records are the same aircraft when their airlines are in the same
+    TWIN_AIRLINES group and they share the flight number, the ASU day, the
+    scheduled ASU time and the other airport. The copy with more data is kept;
+    the other's number and its marketing numbers join `marketing`.
+    """
+    kept: dict = {}
+    result = []
+    for record in records:
+        group = _twin_group(record["airline"]["iata"])
+        number = record["flight"]["number"]
+        if group is None or not number or not record["scheduled_utc"]:
+            result.append(record)
+            continue
+        key = (
+            group,
+            number,
+            record["local_date"],
+            record["scheduled_utc"],
+            record["other"]["iata"] or record["other"]["airport"],
+        )
+        if key not in kept:
+            kept[key] = len(result)
+            result.append(record)
+            continue
+
+        current = result[kept[key]]
+        rank_new = (_richness(record), -group.index(record["airline"]["iata"]))
+        rank_old = (_richness(current), -group.index(current["airline"]["iata"]))
+        winner, loser = (record, current) if rank_new > rank_old else (current, record)
+        for extra in [loser["flight"]["iata"]] + loser["marketing"]:
+            add_marketing_number(winner, extra)
+        if winner is record:
+            result[kept[key]] = record
+    return result
+
+
 def flights_from_payload(payload: dict, direction: str, date: str | None = None) -> list:
     """Normalized, deduplicated flights, optionally only those of one ASU day.
 
@@ -319,7 +387,7 @@ def flights_from_payload(payload: dict, direction: str, date: str | None = None)
     a snapshot keeps the day it is for and leaves the rest in data/raw.
     """
     rows = (payload or {}).get("data") or []
-    flights = dedupe([normalize_flight(row, direction) for row in rows])
+    flights = merge_twins(dedupe([normalize_flight(row, direction) for row in rows]))
     if date is None:
         return flights
     return [flight for flight in flights if flight["local_date"] == date]

@@ -186,6 +186,11 @@ Rules that the tests pin down:
 - A record with `flight.codeshared` is a marketing copy: it is merged into the
   operating flight and its number lands in `marketing`. If the operating flight
   is missing from the response, the copy is kept and `codeshare_of` names it.
+- LATAM (`LA`) and LATAM Paraguay (`PZ`) list the same aircraft twice without
+  marking either as a codeshare (`LA1302` and `PZ1302`, same time, same route).
+  Those pairs are merged too: the copy with more data is kept (`PZ` on a tie)
+  and the other number lands in `marketing`. Other groups go in
+  `asu.TWIN_AIRLINES`.
 - Missing values stay empty (`null`); nothing is invented or interpolated.
 - Statuses: `scheduled`, `active`, `landed`, `cancelled`, `incident`,
   `diverted`. A flight counts as delayed from 15 minutes on.

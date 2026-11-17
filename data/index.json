@@ -8,15 +8,15 @@
     "country": "Paraguay",
     "timezone": "America/Asuncion"
   },
-  "updated_at": "2026-11-16T19:05:33Z",
+  "updated_at": "2026-11-17T12:39:37Z",
   "latest": "2026-11-16",
   "days": [
     {
       "date": "2026-11-10",
       "file": "2026-11-10.json",
-      "arrivals": 13,
-      "departures": 17,
-      "total": 30,
+      "arrivals": 10,
+      "departures": 14,
+      "total": 24,
       "cancelled": 0,
       "delayed": 3,
       "collected_at": "2026-11-11T15:55:57Z"
@@ -24,9 +24,9 @@
     {
       "date": "2026-11-11",
       "file": "2026-11-11.json",
-      "arrivals": 18,
-      "departures": 15,
-      "total": 33,
+      "arrivals": 15,
+      "departures": 12,
+      "total": 27,
       "cancelled": 0,
       "delayed": 2,
       "collected_at": "2026-11-11T15:55:57Z"
@@ -34,9 +34,9 @@
     {
       "date": "2026-11-12",
       "file": "2026-11-12.json",
-      "arrivals": 20,
-      "departures": 15,
-      "total": 35,
+      "arrivals": 18,
+      "departures": 13,
+      "total": 31,
       "cancelled": 0,
       "delayed": 3,
       "collected_at": "2026-11-12T17:15:15Z"
@@ -44,9 +44,9 @@
     {
       "date": "2026-11-13",
       "file": "2026-11-13.json",
-      "arrivals": 19,
-      "departures": 18,
-      "total": 37,
+      "arrivals": 16,
+      "departures": 15,
+      "total": 31,
       "cancelled": 0,
       "delayed": 5,
       "collected_at": "2026-11-13T16:52:08Z"
@@ -54,9 +54,9 @@
     {
       "date": "2026-11-14",
       "file": "2026-11-14.json",
-      "arrivals": 22,
-      "departures": 19,
-      "total": 41,
+      "arrivals": 19,
+      "departures": 16,
+      "total": 35,
       "cancelled": 0,
       "delayed": 3,
       "collected_at": "2026-11-14T15:25:43Z"
@@ -64,9 +64,9 @@
     {
       "date": "2026-11-15",
       "file": "2026-11-15.json",
-      "arrivals": 35,
-      "departures": 29,
-      "total": 64,
+      "arrivals": 31,
+      "departures": 26,
+      "total": 57,
       "cancelled": 0,
       "delayed": 3,
       "collected_at": "2026-11-15T15:58:39Z"
@@ -74,11 +74,11 @@
     {
       "date": "2026-11-16",
       "file": "2026-11-16.json",
-      "arrivals": 32,
-      "departures": 33,
-      "total": 65,
+      "arrivals": 28,
+      "departures": 29,
+      "total": 57,
       "cancelled": 0,
-      "delayed": 7,
+      "delayed": 5,
       "collected_at": "2026-11-16T19:05:33Z"
     }
   ]

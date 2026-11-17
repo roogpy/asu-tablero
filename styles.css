@@ -211,7 +211,7 @@ html, body {
   border-radius: var(--radius);
   padding: 10px 12px;
   display: grid;
-  grid-template-columns: 4.4rem 1fr auto;
+  grid-template-columns: 4.4rem minmax(0, 1fr);
   gap: 4px 10px;
   align-items: start;
 }
@@ -233,36 +233,23 @@ html, body {
 
 .flight .time small.late { color: var(--bad); }
 
+/* One line always: a name that still does not fit ends in "…". */
 .flight .place {
   font-size: 1.02rem;
   font-weight: 600;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .flight .meta {
-  grid-column: 2 / span 2;
+  grid-column: 2;
   font-size: 0.8rem;
   color: var(--muted);
   overflow-wrap: anywhere;
 }
 
 .flight .meta .sep { opacity: 0.5; padding: 0 4px; }
-
-.chip {
-  justify-self: end;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  padding: 4px 8px;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-
-.chip-landed, .chip-active { color: var(--ok); background: var(--ok-bg); }
-.chip-scheduled { color: var(--info); background: var(--info-bg); }
-.chip-cancelled, .chip-incident { color: var(--bad); background: var(--bad-bg); }
-.chip-diverted, .chip-unknown { color: var(--warn); background: var(--warn-bg); }
 
 .empty {
   padding: 28px 14px;
