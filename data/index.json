@@ -8,8 +8,8 @@
     "country": "Paraguay",
     "timezone": "America/Asuncion"
   },
-  "updated_at": "2026-11-19T17:50:58Z",
-  "latest": "2026-11-19",
+  "updated_at": "2026-11-20T17:26:20Z",
+  "latest": "2026-11-20",
   "days": [
     {
       "date": "2026-11-10",
@@ -110,6 +110,16 @@
       "cancelled": 1,
       "delayed": 7,
       "collected_at": "2026-11-19T17:50:58Z"
+    },
+    {
+      "date": "2026-11-20",
+      "file": "2026-11-20.json",
+      "arrivals": 17,
+      "departures": 15,
+      "total": 32,
+      "cancelled": 0,
+      "delayed": 6,
+      "collected_at": "2026-11-20T17:26:19Z"
     }
   ]
 }
