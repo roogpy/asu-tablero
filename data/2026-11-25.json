@@ -1,0 +1,1658 @@
+{
+  "schema": 1,
+  "date": "2026-11-25",
+  "airport": {
+    "iata": "ASU",
+    "icao": "SGAS",
+    "name": "Silvio Pettirossi International Airport",
+    "city": "Luque",
+    "country": "Paraguay",
+    "timezone": "America/Asuncion"
+  },
+  "collected_at": "2026-11-25T18:54:36Z",
+  "source": "aviationstack /v1/flights",
+  "pagination": {
+    "arrivals": {
+      "limit": 100,
+      "offset": 0,
+      "count": 71,
+      "total": 71
+    },
+    "departures": {
+      "limit": 100,
+      "offset": 0,
+      "count": 84,
+      "total": 84
+    }
+  },
+  "outside_day": {
+    "arrivals": 14,
+    "departures": 15
+  },
+  "summary": {
+    "arrivals": 15,
+    "departures": 15,
+    "total": 30,
+    "cancelled": 0,
+    "delayed": 7,
+    "by_status": {
+      "arrivals": {
+        "active": 5,
+        "landed": 3,
+        "scheduled": 6,
+        "unknown": 1
+      },
+      "departures": {
+        "active": 3,
+        "landed": 6,
+        "scheduled": 6
+      },
+      "all": {
+        "active": 8,
+        "landed": 9,
+        "scheduled": 12,
+        "unknown": 1
+      }
+    },
+    "airlines": [
+      {
+        "name": "LATAM Airlines",
+        "count": 8
+      },
+      {
+        "name": "Aerolineas Argentinas",
+        "count": 5
+      },
+      {
+        "name": "Copa Airlines",
+        "count": 4
+      },
+      {
+        "name": "JetSMART",
+        "count": 3
+      },
+      {
+        "name": "Air Europa",
+        "count": 2
+      },
+      {
+        "name": "Avianca",
+        "count": 2
+      },
+      {
+        "name": "Gol",
+        "count": 2
+      },
+      {
+        "name": "LATAM Cargo",
+        "count": 2
+      },
+      {
+        "name": "Alrosa",
+        "count": 1
+      },
+      {
+        "name": "Silk Way Airlines",
+        "count": 1
+      }
+    ],
+    "places": [
+      {
+        "name": "AEP",
+        "count": 7
+      },
+      {
+        "name": "GRU",
+        "count": 6
+      },
+      {
+        "name": "PTY",
+        "count": 4
+      },
+      {
+        "name": "BOG",
+        "count": 3
+      },
+      {
+        "name": "SCL",
+        "count": 3
+      },
+      {
+        "name": "LIM",
+        "count": 2
+      },
+      {
+        "name": "MAD",
+        "count": 2
+      },
+      {
+        "name": "EZE",
+        "count": 1
+      },
+      {
+        "name": "MIA",
+        "count": 1
+      },
+      {
+        "name": "MVD",
+        "count": 1
+      }
+    ],
+    "codeshares_merged": 54
+  },
+  "arrivals": [
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "LA1302",
+        "icao": "LAN1302",
+        "number": "1302"
+      },
+      "airline": {
+        "name": "LATAM Airlines",
+        "iata": "LA",
+        "icao": "LAN"
+      },
+      "status": "scheduled",
+      "flight_date": "2026-11-24",
+      "local_date": "2026-11-25",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-25T04:15:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Aeroporto Internacional Guarulhos",
+        "iata": "GRU",
+        "icao": "SBGR",
+        "timezone": "America/Sao_Paulo",
+        "terminal": "3",
+        "gate": "311",
+        "baggage": null,
+        "delay_minutes": 157,
+        "scheduled_utc": "2026-11-25T02:05:00Z",
+        "estimated_utc": "2026-11-25T02:05:00Z",
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-25T04:15:00Z",
+      "estimated_utc": null,
+      "actual_utc": null,
+      "delay_minutes": null
+    },
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "6R213",
+        "icao": "DRU213",
+        "number": "213"
+      },
+      "airline": {
+        "name": "Alrosa",
+        "iata": "6R",
+        "icao": "DRU"
+      },
+      "status": null,
+      "flight_date": "2026-11-24",
+      "local_date": "2026-11-25",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-25T08:10:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "El Nuevo Dorado International",
+        "iata": "BOG",
+        "icao": "SKBO",
+        "timezone": "America/Bogota",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-25T03:25:00Z",
+        "estimated_utc": "2026-11-25T03:25:00Z",
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-25T08:10:00Z",
+      "estimated_utc": null,
+      "actual_utc": null,
+      "delay_minutes": null
+    },
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "CM291",
+        "icao": "CMP291",
+        "number": "291"
+      },
+      "airline": {
+        "name": "Copa Airlines",
+        "iata": "CM",
+        "icao": "CMP"
+      },
+      "status": "landed",
+      "flight_date": "2026-11-24",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "AF5364",
+        "KL3040",
+        "TK9650",
+        "UA7086"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-25T08:25:00Z",
+        "estimated_utc": "2026-11-25T08:12:00Z",
+        "actual_utc": "2026-11-25T08:10:00Z"
+      },
+      "other": {
+        "airport": "Tocumen International",
+        "iata": "PTY",
+        "icao": "MPTO",
+        "timezone": "America/Panama",
+        "terminal": "2",
+        "gate": "218",
+        "baggage": null,
+        "delay_minutes": 16,
+        "scheduled_utc": "2026-11-25T02:23:00Z",
+        "estimated_utc": "2026-11-25T02:23:00Z",
+        "actual_utc": "2026-11-25T02:39:00Z"
+      },
+      "scheduled_utc": "2026-11-25T08:25:00Z",
+      "estimated_utc": "2026-11-25T08:12:00Z",
+      "actual_utc": "2026-11-25T08:10:00Z",
+      "delay_minutes": 0
+    },
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "AV213",
+        "icao": "AVA213",
+        "number": "213"
+      },
+      "airline": {
+        "name": "Avianca",
+        "iata": "AV",
+        "icao": "AVA"
+      },
+      "status": "scheduled",
+      "flight_date": "2026-11-24",
+      "local_date": "2026-11-25",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 34,
+        "scheduled_utc": "2026-11-25T08:55:00Z",
+        "estimated_utc": "2026-11-25T09:29:00Z",
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "El Nuevo Dorado International",
+        "iata": "BOG",
+        "icao": "SKBO",
+        "timezone": "America/Bogota",
+        "terminal": "1",
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 63,
+        "scheduled_utc": "2026-11-25T03:35:00Z",
+        "estimated_utc": "2026-11-25T03:35:00Z",
+        "actual_utc": "2026-11-25T04:38:00Z"
+      },
+      "scheduled_utc": "2026-11-25T08:55:00Z",
+      "estimated_utc": "2026-11-25T09:29:00Z",
+      "actual_utc": null,
+      "delay_minutes": 34
+    },
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "PZ1321",
+        "icao": "LAP1321",
+        "number": "1321"
+      },
+      "airline": {
+        "name": "LATAM Airlines",
+        "iata": "PZ",
+        "icao": "LAP"
+      },
+      "status": "landed",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "AM8924",
+        "IB6791",
+        "LA1321"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-25T09:15:00Z",
+        "estimated_utc": "2026-11-25T09:01:00Z",
+        "actual_utc": "2026-11-25T08:58:00Z"
+      },
+      "other": {
+        "airport": "Jorge Chavez International",
+        "iata": "LIM",
+        "icao": "SPJC",
+        "timezone": "America/Lima",
+        "terminal": null,
+        "gate": "B3",
+        "baggage": null,
+        "delay_minutes": 19,
+        "scheduled_utc": "2026-11-25T05:30:00Z",
+        "estimated_utc": "2026-11-25T05:30:00Z",
+        "actual_utc": "2026-11-25T05:49:00Z"
+      },
+      "scheduled_utc": "2026-11-25T09:15:00Z",
+      "estimated_utc": "2026-11-25T09:01:00Z",
+      "actual_utc": "2026-11-25T08:58:00Z",
+      "delay_minutes": 0
+    },
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "UX23",
+        "icao": "AEA23",
+        "number": "23"
+      },
+      "airline": {
+        "name": "Air Europa",
+        "iata": "UX",
+        "icao": "AEA"
+      },
+      "status": "scheduled",
+      "flight_date": "2026-11-24",
+      "local_date": "2026-11-25",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 43,
+        "scheduled_utc": "2026-11-25T10:30:00Z",
+        "estimated_utc": "2026-11-25T11:13:00Z",
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Barajas",
+        "iata": "MAD",
+        "icao": "LEMD",
+        "timezone": "Europe/Madrid",
+        "terminal": "1",
+        "gate": "B26",
+        "baggage": null,
+        "delay_minutes": 90,
+        "scheduled_utc": "2026-11-24T22:45:00Z",
+        "estimated_utc": "2026-11-24T22:45:00Z",
+        "actual_utc": "2026-11-25T00:15:00Z"
+      },
+      "scheduled_utc": "2026-11-25T10:30:00Z",
+      "estimated_utc": "2026-11-25T11:13:00Z",
+      "actual_utc": null,
+      "delay_minutes": 43
+    },
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "AR1340",
+        "icao": "ARG1340",
+        "number": "1340"
+      },
+      "airline": {
+        "name": "Aerolineas Argentinas",
+        "iata": "AR",
+        "icao": "ARG"
+      },
+      "status": "active",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "AF4208",
+        "AZ5342",
+        "LA5256"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-25T11:35:00Z",
+        "estimated_utc": "2026-11-25T11:35:00Z",
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Aeroparque Jorge Newbery",
+        "iata": "AEP",
+        "icao": "SABE",
+        "timezone": "America/Argentina/Buenos_Aires",
+        "terminal": "TA",
+        "gate": "19",
+        "baggage": null,
+        "delay_minutes": 15,
+        "scheduled_utc": "2026-11-25T09:40:00Z",
+        "estimated_utc": "2026-11-25T09:40:00Z",
+        "actual_utc": "2026-11-25T09:55:00Z"
+      },
+      "scheduled_utc": "2026-11-25T11:35:00Z",
+      "estimated_utc": "2026-11-25T11:35:00Z",
+      "actual_utc": null,
+      "delay_minutes": 0
+    },
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "LA1300",
+        "icao": "LAN1300",
+        "number": "1300"
+      },
+      "airline": {
+        "name": "LATAM Airlines",
+        "iata": "LA",
+        "icao": "LAN"
+      },
+      "status": "active",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "LH4736",
+        "LX9728"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 35,
+        "scheduled_utc": "2026-11-25T13:35:00Z",
+        "estimated_utc": "2026-11-25T14:10:00Z",
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Aeroporto Internacional Guarulhos",
+        "iata": "GRU",
+        "icao": "SBGR",
+        "timezone": "America/Sao_Paulo",
+        "terminal": "3",
+        "gate": "332",
+        "baggage": null,
+        "delay_minutes": 52,
+        "scheduled_utc": "2026-11-25T11:25:00Z",
+        "estimated_utc": "2026-11-25T11:25:00Z",
+        "actual_utc": "2026-11-25T12:17:00Z"
+      },
+      "scheduled_utc": "2026-11-25T13:35:00Z",
+      "estimated_utc": "2026-11-25T14:10:00Z",
+      "actual_utc": null,
+      "delay_minutes": 35
+    },
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "G37480",
+        "icao": "GLO7480",
+        "number": "7480"
+      },
+      "airline": {
+        "name": "Gol",
+        "iata": "G3",
+        "icao": "GLO"
+      },
+      "status": "active",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "AA7654",
+        "AF1902",
+        "AV6402",
+        "CM3819",
+        "EK3731",
+        "KL9386",
+        "TK9235"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-25T15:30:00Z",
+        "estimated_utc": "2026-11-25T15:13:00Z",
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Aeroporto Internacional Guarulhos",
+        "iata": "GRU",
+        "icao": "SBGR",
+        "timezone": "America/Sao_Paulo",
+        "terminal": "2",
+        "gate": "268",
+        "baggage": null,
+        "delay_minutes": 14,
+        "scheduled_utc": "2026-11-25T13:15:00Z",
+        "estimated_utc": "2026-11-25T13:15:00Z",
+        "actual_utc": "2026-11-25T13:29:00Z"
+      },
+      "scheduled_utc": "2026-11-25T15:30:00Z",
+      "estimated_utc": "2026-11-25T15:13:00Z",
+      "actual_utc": null,
+      "delay_minutes": 0
+    },
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "JA3790",
+        "icao": "JAT3790",
+        "number": "3790"
+      },
+      "airline": {
+        "name": "JetSMART",
+        "iata": "JA",
+        "icao": "JAT"
+      },
+      "status": "scheduled",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-25T18:13:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Aeroparque Jorge Newbery",
+        "iata": "AEP",
+        "icao": "SABE",
+        "timezone": "America/Argentina/Buenos_Aires",
+        "terminal": null,
+        "gate": "20",
+        "baggage": null,
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-25T16:22:00Z",
+        "estimated_utc": "2026-11-25T16:22:00Z",
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-25T18:13:00Z",
+      "estimated_utc": null,
+      "actual_utc": null,
+      "delay_minutes": null
+    },
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "WJ3790",
+        "icao": "JES3790",
+        "number": "3790"
+      },
+      "airline": {
+        "name": "JetSMART",
+        "iata": "WJ",
+        "icao": "JES"
+      },
+      "status": "landed",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 1,
+        "scheduled_utc": "2026-11-25T18:13:00Z",
+        "estimated_utc": null,
+        "actual_utc": "2026-11-25T18:14:00Z"
+      },
+      "other": {
+        "airport": "Aeroparque Jorge Newbery",
+        "iata": "AEP",
+        "icao": "SABE",
+        "timezone": "America/Argentina/Buenos_Aires",
+        "terminal": null,
+        "gate": "20",
+        "baggage": null,
+        "delay_minutes": 11,
+        "scheduled_utc": "2026-11-25T16:22:00Z",
+        "estimated_utc": "2026-11-25T16:22:00Z",
+        "actual_utc": "2026-11-25T16:33:00Z"
+      },
+      "scheduled_utc": "2026-11-25T18:13:00Z",
+      "estimated_utc": null,
+      "actual_utc": "2026-11-25T18:14:00Z",
+      "delay_minutes": 1
+    },
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "LA1325",
+        "icao": "LAN1325",
+        "number": "1325"
+      },
+      "airline": {
+        "name": "LATAM Airlines",
+        "iata": "LA",
+        "icao": "LAN"
+      },
+      "status": "active",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-25T20:58:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Arturo Merino Benitez",
+        "iata": "SCL",
+        "icao": "SCEL",
+        "timezone": "America/Santiago",
+        "terminal": "2",
+        "gate": "D1",
+        "baggage": null,
+        "delay_minutes": 10,
+        "scheduled_utc": "2026-11-25T18:20:00Z",
+        "estimated_utc": "2026-11-25T18:20:00Z",
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-25T20:58:00Z",
+      "estimated_utc": null,
+      "actual_utc": null,
+      "delay_minutes": null
+    },
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "UC2832",
+        "icao": "LCO2832",
+        "number": "2832"
+      },
+      "airline": {
+        "name": "LATAM Cargo",
+        "iata": "UC",
+        "icao": "LCO"
+      },
+      "status": "active",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-25T22:10:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Miami International Airport",
+        "iata": "MIA",
+        "icao": "KMIA",
+        "timezone": "America/New_York",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 775,
+        "scheduled_utc": "2026-11-25T14:05:00Z",
+        "estimated_utc": "2026-11-25T14:05:00Z",
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-25T22:10:00Z",
+      "estimated_utc": null,
+      "actual_utc": null,
+      "delay_minutes": null
+    },
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "AR1346",
+        "icao": "ARG1346",
+        "number": "1346"
+      },
+      "airline": {
+        "name": "Aerolineas Argentinas",
+        "iata": "AR",
+        "icao": "ARG"
+      },
+      "status": "scheduled",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "AM7548",
+        "AZ5344",
+        "KL9212",
+        "LA5972"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": "T1",
+        "gate": "5",
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-25T23:15:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Aeroparque Jorge Newbery",
+        "iata": "AEP",
+        "icao": "SABE",
+        "timezone": "America/Argentina/Buenos_Aires",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-25T21:20:00Z",
+        "estimated_utc": "2026-11-25T21:20:00Z",
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-25T23:15:00Z",
+      "estimated_utc": null,
+      "actual_utc": null,
+      "delay_minutes": null
+    },
+    {
+      "direction": "arrival",
+      "flight": {
+        "iata": "CM207",
+        "icao": "CMP207",
+        "number": "207"
+      },
+      "airline": {
+        "name": "Copa Airlines",
+        "iata": "CM",
+        "icao": "CMP"
+      },
+      "status": "scheduled",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "UA7113"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-26T02:57:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Tocumen International",
+        "iata": "PTY",
+        "icao": "MPTO",
+        "timezone": "America/Panama",
+        "terminal": "2",
+        "gate": "209",
+        "baggage": null,
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-25T20:55:00Z",
+        "estimated_utc": "2026-11-25T20:55:00Z",
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-26T02:57:00Z",
+      "estimated_utc": null,
+      "actual_utc": null,
+      "delay_minutes": null
+    }
+  ],
+  "departures": [
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "CM206",
+        "icao": "CMP206",
+        "number": "206"
+      },
+      "airline": {
+        "name": "Copa Airlines",
+        "iata": "CM",
+        "icao": "CMP"
+      },
+      "status": "landed",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "AF4365"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": "4",
+        "baggage": null,
+        "delay_minutes": 12,
+        "scheduled_utc": "2026-11-25T04:47:00Z",
+        "estimated_utc": "2026-11-25T04:47:00Z",
+        "actual_utc": "2026-11-25T04:59:00Z"
+      },
+      "other": {
+        "airport": "Tocumen International",
+        "iata": "PTY",
+        "icao": "MPTO",
+        "timezone": "America/Panama",
+        "terminal": "1",
+        "gate": "143",
+        "baggage": null,
+        "delay_minutes": 4,
+        "scheduled_utc": "2026-11-25T10:58:00Z",
+        "estimated_utc": "2026-11-25T11:04:00Z",
+        "actual_utc": "2026-11-25T11:02:00Z"
+      },
+      "scheduled_utc": "2026-11-25T04:47:00Z",
+      "estimated_utc": "2026-11-25T04:47:00Z",
+      "actual_utc": "2026-11-25T04:59:00Z",
+      "delay_minutes": 12
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "LA1303",
+        "icao": "LAN1303",
+        "number": "1303"
+      },
+      "airline": {
+        "name": "LATAM Airlines",
+        "iata": "LA",
+        "icao": "LAN"
+      },
+      "status": "scheduled",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "IB6786",
+        "LH4717",
+        "LX9731"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": "1",
+        "gate": "1",
+        "baggage": null,
+        "delay_minutes": 168,
+        "scheduled_utc": "2026-11-25T05:45:00Z",
+        "estimated_utc": "2026-11-25T05:45:00Z",
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Aeroporto Internacional Guarulhos",
+        "iata": "GRU",
+        "icao": "SBGR",
+        "timezone": "America/Sao_Paulo",
+        "terminal": "3",
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-25T07:45:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-25T05:45:00Z",
+      "estimated_utc": "2026-11-25T05:45:00Z",
+      "actual_utc": null,
+      "delay_minutes": 168
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "CM290",
+        "icao": "CMP290",
+        "number": "290"
+      },
+      "airline": {
+        "name": "Copa Airlines",
+        "iata": "CM",
+        "icao": "CMP"
+      },
+      "status": "landed",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "AF5365",
+        "KL3045",
+        "TK9651",
+        "UA7161"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": "4",
+        "baggage": null,
+        "delay_minutes": 6,
+        "scheduled_utc": "2026-11-25T09:31:00Z",
+        "estimated_utc": "2026-11-25T09:31:00Z",
+        "actual_utc": "2026-11-25T09:37:00Z"
+      },
+      "other": {
+        "airport": "Tocumen International",
+        "iata": "PTY",
+        "icao": "MPTO",
+        "timezone": "America/Panama",
+        "terminal": "2",
+        "gate": "224",
+        "baggage": null,
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-25T15:45:00Z",
+        "estimated_utc": "2026-11-25T15:40:00Z",
+        "actual_utc": "2026-11-25T15:37:00Z"
+      },
+      "scheduled_utc": "2026-11-25T09:31:00Z",
+      "estimated_utc": "2026-11-25T09:31:00Z",
+      "actual_utc": "2026-11-25T09:37:00Z",
+      "delay_minutes": 6
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "AV212",
+        "icao": "AVA212",
+        "number": "212"
+      },
+      "airline": {
+        "name": "Avianca",
+        "iata": "AV",
+        "icao": "AVA"
+      },
+      "status": "active",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 10,
+        "scheduled_utc": "2026-11-25T10:55:00Z",
+        "estimated_utc": "2026-11-25T10:55:00Z",
+        "actual_utc": "2026-11-25T11:05:00Z"
+      },
+      "other": {
+        "airport": "El Nuevo Dorado International",
+        "iata": "BOG",
+        "icao": "SKBO",
+        "timezone": "America/Bogota",
+        "terminal": "1",
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 2,
+        "scheduled_utc": "2026-11-25T16:15:00Z",
+        "estimated_utc": "2026-11-25T16:17:00Z",
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-25T10:55:00Z",
+      "estimated_utc": "2026-11-25T10:55:00Z",
+      "actual_utc": "2026-11-25T11:05:00Z",
+      "delay_minutes": 10
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "PZ1320",
+        "icao": "LAP1320",
+        "number": "1320"
+      },
+      "airline": {
+        "name": "LATAM Airlines",
+        "iata": "PZ",
+        "icao": "LAP"
+      },
+      "status": "landed",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "AM8923",
+        "IB6792",
+        "LA1320"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": "1",
+        "gate": "1",
+        "baggage": null,
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-25T11:00:00Z",
+        "estimated_utc": "2026-11-25T11:00:00Z",
+        "actual_utc": "2026-11-25T10:58:00Z"
+      },
+      "other": {
+        "airport": "Jorge Chavez International",
+        "iata": "LIM",
+        "icao": "SPJC",
+        "timezone": "America/Lima",
+        "terminal": null,
+        "gate": null,
+        "baggage": "7",
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-25T14:55:00Z",
+        "estimated_utc": "2026-11-25T14:52:00Z",
+        "actual_utc": "2026-11-25T14:51:00Z"
+      },
+      "scheduled_utc": "2026-11-25T11:00:00Z",
+      "estimated_utc": "2026-11-25T11:00:00Z",
+      "actual_utc": "2026-11-25T10:58:00Z",
+      "delay_minutes": 0
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "AR1341",
+        "icao": "ARG1341",
+        "number": "1341"
+      },
+      "airline": {
+        "name": "Aerolineas Argentinas",
+        "iata": "AR",
+        "icao": "ARG"
+      },
+      "status": "active",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "AF3989",
+        "AM7560",
+        "AZ5343",
+        "KL9214",
+        "LA8413"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": "T1",
+        "gate": "4",
+        "baggage": null,
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-25T12:45:00Z",
+        "estimated_utc": "2026-11-25T12:45:00Z",
+        "actual_utc": "2026-11-25T12:42:00Z"
+      },
+      "other": {
+        "airport": "Aeroparque Jorge Newbery",
+        "iata": "AEP",
+        "icao": "SABE",
+        "timezone": "America/Argentina/Buenos_Aires",
+        "terminal": "AI",
+        "gate": null,
+        "baggage": "3I",
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-25T14:40:00Z",
+        "estimated_utc": null,
+        "actual_utc": "2026-11-25T14:02:00Z"
+      },
+      "scheduled_utc": "2026-11-25T12:45:00Z",
+      "estimated_utc": "2026-11-25T12:45:00Z",
+      "actual_utc": "2026-11-25T12:42:00Z",
+      "delay_minutes": 0
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "UX126",
+        "icao": "AEA126",
+        "number": "126"
+      },
+      "airline": {
+        "name": "Air Europa",
+        "iata": "UX",
+        "icao": "AEA"
+      },
+      "status": "scheduled",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-25T12:50:00Z",
+        "estimated_utc": "2026-11-25T12:50:00Z",
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Barajas",
+        "iata": "MAD",
+        "icao": "LEMD",
+        "timezone": "Europe/Madrid",
+        "terminal": "2",
+        "gate": null,
+        "baggage": "I104",
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-25T23:50:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-25T12:50:00Z",
+      "estimated_utc": "2026-11-25T12:50:00Z",
+      "actual_utc": null,
+      "delay_minutes": 0
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "AR1041",
+        "icao": "ARG1041",
+        "number": "1041"
+      },
+      "airline": {
+        "name": "Aerolineas Argentinas",
+        "iata": "AR",
+        "icao": "ARG"
+      },
+      "status": "landed",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 39,
+        "scheduled_utc": "2026-11-25T13:00:00Z",
+        "estimated_utc": "2026-11-25T13:00:00Z",
+        "actual_utc": "2026-11-25T13:39:00Z"
+      },
+      "other": {
+        "airport": "Ezeiza Ministro Pistarini",
+        "iata": "EZE",
+        "icao": "SAEZ",
+        "timezone": "America/Argentina/Buenos_Aires",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 10,
+        "scheduled_utc": "2026-11-25T15:00:00Z",
+        "estimated_utc": "2026-11-25T15:09:00Z",
+        "actual_utc": "2026-11-25T15:10:00Z"
+      },
+      "scheduled_utc": "2026-11-25T13:00:00Z",
+      "estimated_utc": "2026-11-25T13:00:00Z",
+      "actual_utc": "2026-11-25T13:39:00Z",
+      "delay_minutes": 39
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "PZ1324",
+        "icao": "LAP1324",
+        "number": "1324"
+      },
+      "airline": {
+        "name": "LATAM Airlines",
+        "iata": "PZ",
+        "icao": "LAP"
+      },
+      "status": "landed",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "LA1324"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": "1",
+        "gate": "1",
+        "baggage": null,
+        "delay_minutes": 41,
+        "scheduled_utc": "2026-11-25T14:30:00Z",
+        "estimated_utc": "2026-11-25T14:30:00Z",
+        "actual_utc": "2026-11-25T15:11:00Z"
+      },
+      "other": {
+        "airport": "Arturo Merino Benitez",
+        "iata": "SCL",
+        "icao": "SCEL",
+        "timezone": "America/Santiago",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 9,
+        "scheduled_utc": "2026-11-25T17:20:00Z",
+        "estimated_utc": "2026-11-25T17:30:00Z",
+        "actual_utc": "2026-11-25T17:29:00Z"
+      },
+      "scheduled_utc": "2026-11-25T14:30:00Z",
+      "estimated_utc": "2026-11-25T14:30:00Z",
+      "actual_utc": "2026-11-25T15:11:00Z",
+      "delay_minutes": 41
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "G37481",
+        "icao": "GLO7481",
+        "number": "7481"
+      },
+      "airline": {
+        "name": "Gol",
+        "iata": "G3",
+        "icao": "GLO"
+      },
+      "status": "landed",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "AF1916",
+        "AV6403",
+        "CM3820",
+        "EK3732",
+        "KL9361",
+        "TK9236"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": "4",
+        "baggage": null,
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-25T16:20:00Z",
+        "estimated_utc": "2026-11-25T16:20:00Z",
+        "actual_utc": "2026-11-25T16:19:00Z"
+      },
+      "other": {
+        "airport": "Aeroporto Internacional Guarulhos",
+        "iata": "GRU",
+        "icao": "SBGR",
+        "timezone": "America/Sao_Paulo",
+        "terminal": "2",
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 0,
+        "scheduled_utc": "2026-11-25T18:20:00Z",
+        "estimated_utc": "2026-11-25T18:00:00Z",
+        "actual_utc": "2026-11-25T17:59:00Z"
+      },
+      "scheduled_utc": "2026-11-25T16:20:00Z",
+      "estimated_utc": "2026-11-25T16:20:00Z",
+      "actual_utc": "2026-11-25T16:19:00Z",
+      "delay_minutes": 0
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "JA3791",
+        "icao": "JAT3791",
+        "number": "3791"
+      },
+      "airline": {
+        "name": "JetSMART",
+        "iata": "JA",
+        "icao": "JAT"
+      },
+      "status": "active",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-25T19:03:00Z",
+        "estimated_utc": "2026-11-25T19:03:00Z",
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Aeroparque Jorge Newbery",
+        "iata": "AEP",
+        "icao": "SABE",
+        "timezone": "America/Argentina/Buenos_Aires",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-25T21:00:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-25T19:03:00Z",
+      "estimated_utc": "2026-11-25T19:03:00Z",
+      "actual_utc": null,
+      "delay_minutes": null
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "ZP841",
+        "icao": "AZQ841",
+        "number": "841"
+      },
+      "airline": {
+        "name": "Silk Way Airlines",
+        "iata": "ZP",
+        "icao": "AZQ"
+      },
+      "status": "scheduled",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "H13778",
+        "Q48041"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-25T19:30:00Z",
+        "estimated_utc": "2026-11-25T19:30:00Z",
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Carrasco International",
+        "iata": "MVD",
+        "icao": "SUMU",
+        "timezone": "America/Montevideo",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-25T21:20:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-25T19:30:00Z",
+      "estimated_utc": "2026-11-25T19:30:00Z",
+      "actual_utc": null,
+      "delay_minutes": null
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "LA1301",
+        "icao": "LAN1301",
+        "number": "1301"
+      },
+      "airline": {
+        "name": "LATAM Airlines",
+        "iata": "LA",
+        "icao": "LAN"
+      },
+      "status": "scheduled",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "LH4713"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": "1",
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 13,
+        "scheduled_utc": "2026-11-25T22:00:00Z",
+        "estimated_utc": "2026-11-25T22:00:00Z",
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Aeroporto Internacional Guarulhos",
+        "iata": "GRU",
+        "icao": "SBGR",
+        "timezone": "America/Sao_Paulo",
+        "terminal": "3",
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-26T00:10:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-25T22:00:00Z",
+      "estimated_utc": "2026-11-25T22:00:00Z",
+      "actual_utc": null,
+      "delay_minutes": 13
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "UC2832",
+        "icao": "LCO2832",
+        "number": "2832"
+      },
+      "airline": {
+        "name": "LATAM Cargo",
+        "iata": "UC",
+        "icao": "LCO"
+      },
+      "status": "scheduled",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": 893,
+        "scheduled_utc": "2026-11-25T23:20:00Z",
+        "estimated_utc": "2026-11-25T23:20:00Z",
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Arturo Merino Benitez",
+        "iata": "SCL",
+        "icao": "SCEL",
+        "timezone": "America/Santiago",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-26T02:00:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-25T23:20:00Z",
+      "estimated_utc": "2026-11-25T23:20:00Z",
+      "actual_utc": null,
+      "delay_minutes": 893
+    },
+    {
+      "direction": "departure",
+      "flight": {
+        "iata": "AR1347",
+        "icao": "ARG1347",
+        "number": "1347"
+      },
+      "airline": {
+        "name": "Aerolineas Argentinas",
+        "iata": "AR",
+        "icao": "ARG"
+      },
+      "status": "scheduled",
+      "flight_date": "2026-11-25",
+      "local_date": "2026-11-25",
+      "marketing": [
+        "AZ5345",
+        "KL9215",
+        "LA5937",
+        "LA8352"
+      ],
+      "codeshare_of": null,
+      "asu": {
+        "airport": "Silvio Pettirossi",
+        "iata": "ASU",
+        "icao": "SGAS",
+        "timezone": "America/Asuncion",
+        "terminal": "T1",
+        "gate": "6",
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-26T00:05:00Z",
+        "estimated_utc": "2026-11-26T00:05:00Z",
+        "actual_utc": null
+      },
+      "other": {
+        "airport": "Aeroparque Jorge Newbery",
+        "iata": "AEP",
+        "icao": "SABE",
+        "timezone": "America/Argentina/Buenos_Aires",
+        "terminal": null,
+        "gate": null,
+        "baggage": null,
+        "delay_minutes": null,
+        "scheduled_utc": "2026-11-26T02:00:00Z",
+        "estimated_utc": null,
+        "actual_utc": null
+      },
+      "scheduled_utc": "2026-11-26T00:05:00Z",
+      "estimated_utc": "2026-11-26T00:05:00Z",
+      "actual_utc": null,
+      "delay_minutes": null
+    }
+  ]
+}
